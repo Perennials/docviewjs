@@ -5,7 +5,7 @@ clean OOP frontend library, with components and without hardcoded HTML is
 possible on top of a browser. After the concept was proven it was 
 developed for the front end of [jsdocgen](https://github.com/Perennials/jsdocgen).
 Now it is also used by [phptestr](https://github.com/Perennials/phptestr).
-**The project is in very beta quality, with unstable API and has only few components.**
+**The project is in very beta stage, with unstable API and has only few components.**
 
 
 Features
