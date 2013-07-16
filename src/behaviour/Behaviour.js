@@ -16,7 +16,7 @@ function Behaviour () {
  * @return function|null
  */
 Behaviour.findByName = function ( behaviour ) {
-	if ( typeof behaviour == 'string' || behaviour instanceof String ) {
+	if ( String.isString( behaviour ) ) {
 		return Behaviour[behaviour] || null;
 	}
 	return null;

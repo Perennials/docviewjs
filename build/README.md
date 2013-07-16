@@ -1,4 +1,4 @@
-CLI.bat
+cli.bat
 -------
 
 Command line interface to build docviewjs themes and applications based on docviewjs.

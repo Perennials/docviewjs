@@ -35,6 +35,7 @@
 		}
 
 		& > .AccordionItem:not(.disabled) {
+
 			&.active {
 				& > .View.AccordionItemTitle {
 					color: @text-color-active;
@@ -44,11 +45,11 @@
 			&:not(.active) {
 				& > .View.AccordionItemTitle {
 					color: @link-color;
+					cursor: pointer;
 				}
 
 				&:hover {
 					background-color: @bg-color-hl;
-					cursor: pointer;
 				}
 
 				&:hover > .View.AccordionItemTitle {
