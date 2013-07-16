@@ -33,7 +33,7 @@ In addition to XML templates it supports JavaScript micro templates, for when
 rendering HTML is needed. Since JS micro templates are highly unreadable by their nature,
 the project comes with syntax highlighter for Sublime Text which greatly eases the situation.
 
-![Screenshot](https://github.com/Perennials/docviewjs/redist/misc/screenshot.png)
+![Screenshot](https://raw.github.com/Perennials/docviewjs/master/redist/misc/screenshot.png)
 
 
 Authors
