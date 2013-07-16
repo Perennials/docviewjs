@@ -15,6 +15,8 @@ Features
 - Built on components, no handwriting HTML.
 - XML templates.
 - Micro templates with syntax highlighting.
+- Localization aware.
+- Themeable.
 
 
 What does the XML templates look like?
