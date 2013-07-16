@@ -1,5 +1,15 @@
 "use strict";
 
+// for all browsers
+
+if ( HTMLElement.prototype.matches === undefined ) {
+	Object.defineProperty( HTMLElement.prototype, 'matches', {
+		value: HTMLElement.prototype.webkitMatchesSelector ||
+		       HTMLElement.prototype.msMatchesSelector ||
+		       HTMLElement.prototype.mozMatchesSelector
+	} );
+}
+
 /**
  * Some compatibility fixes for IE 9 and 10
  * @author Borislav Peev <borislav.asdf@gmail.com>

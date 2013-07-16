@@ -117,6 +117,19 @@ View.mixin( TEventDispatcher2 ).define( {
 	},
 
 	/**
+	 * @unstable
+	 */
+	findParentView: function ( selector ) {
+		var el = this._element;
+		while ( el = el.parentNode ) {
+			if ( el._view && el.matches( selector ) ) {
+				return el._view;
+			}
+		}
+		return null;
+	},
+
+	/**
 	 * Adds a child view to this one.
 	 * @def function View.addView ( view, order )
 	 * @param View|View[]
@@ -237,20 +250,22 @@ View.mixin( TEventDispatcher2 ).define( {
 	 * Sets the text content of the view's element.
 	 * @def function View.setText ( id )
 	 * @param string|null
-	 * @return string The newly set text.
+	 * @return this
 	 */
 	setText: function ( text ) {
-		return this._element.textContent = text;
+		this._element.textContent = text;
+		return this;
 	},
 
 	/**
 	 * Sets the "id" attribute of the underlaying DOM element.
 	 * @def function View.setId ( id )
 	 * @param string|null
-	 * @return string The newly set id.
+	  * @return this
 	 */
 	setId: function ( id ) {
-		return this._element.id = id;
+		this._element.id = id;
+		return this;
 	},
 
 	/**
