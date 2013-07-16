@@ -1,7 +1,7 @@
 #### docviewjs_html.tmLanguage
 Language definition for Sublime Text for editing docviewjs templates. This will recongnize
 docviewjs templates in HTML script elements like these:
-```
+```html
 <script type="template/docviewjs">
 ...template goes here...
 </script>
