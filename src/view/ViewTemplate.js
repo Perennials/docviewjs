@@ -155,6 +155,7 @@
 	/*UNITESTS@*/
 
 	/**
+	 * Sets up a view from XML node attributes.
 	 * This function will walk the attributes of XML node element and
 	 * and for each attribute will either try to call a function
 	 * called setAttribute, where attribute is the actual name of the attribute.
@@ -183,6 +184,36 @@
 			var fn = view[name];
 			if ( fn instanceof Function ) {
 				fn.call( view, attr.value );
+			}
+		}
+	};
+
+	/**
+	 * Sets up a view from object properties.
+	 * This function will walk the properties of an object and
+	 * and for each attribute will either try to call a function
+	 * called setAttribute, where attribute is the actual name of the attribute.
+	 * @def static function ViewTemplate.setupViewFromProperties ( view, properties )
+	 * @param View
+	 * @param Object
+	 */
+	ViewTemplate.setupViewFromProperties = function ( view, properties ) {
+		for ( var key in properties ) {
+			var name = key;
+			if ( name.indexOf( '-' ) > 0 ) {
+				var names = name.split( '-' );
+				for ( var j = names.length - 1; j >= 0; --j ) {
+					name = names[j];
+					names[j] = name.charAt( 0 ).toUpperCase() + name.substr( 1 );
+				}
+				name = 'set' + names.join( '' );
+			}
+			else {
+				name = 'set' + name.charAt( 0 ).toUpperCase() + name.substr( 1 );
+			}
+			var fn = view[name];
+			if ( fn instanceof Function ) {
+				fn.call( view, properties[key] );
 			}
 		}
 	};

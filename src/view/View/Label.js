@@ -10,14 +10,18 @@
  */
 
 /**
- * @def constructor View.Label ()
+ * @def constructor View.Label ( options:Object|undefined )
+ * @param Object will predefined properties to set.
  */
-View.Label = function () {
+View.Label = function ( options ) {
 	View.call( this );
 	this._image = null;
 	this._text = null;
 	this._order = 'ltr';
 	this._element.classList.add( 'Label' );
+	if ( options ) {
+		ViewTemplate.setupViewFromProperties( this, options );
+	}
 };
 
 View.Label.extend( View, {
