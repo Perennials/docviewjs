@@ -2,7 +2,7 @@
 
 /*@*/require( '../../src/docview.js' );
 
-var CssTheme = {
+var DocviewjsTheme = {
 	DeviceSizes: {
 		'device-large': [ 1200, -1 ], //@min-width-large, -1
 		'device-desktop': [ 992, 1999 ], //@min-width-desktop, @max-width-desktop

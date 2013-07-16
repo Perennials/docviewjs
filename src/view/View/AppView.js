@@ -18,7 +18,7 @@ View.AppView = function () {
 	this._element.classList.add( 'AppView' );
 
 	this._lastDeviceClass = null;
-	if ( window.CssTheme !== undefined ) {
+	if ( window.DocviewjsTheme !== undefined ) {
 		this._onResize = new EventListener( 'resize', this.updateDeviceClass.bind( this ), 'capture' ).add( window );
 		this.updateDeviceClass();
 	}
@@ -59,13 +59,13 @@ View.AppView.extend( View, {
 
 	/**
 	 * Adds a CSS class name to the view's DOM element identifying the device size.
-	 * Device class names and sizes must be defined in window.CssTheme.DeviceSizes.
+	 * Device class names and sizes must be defined in window.DocviewjsTheme.DeviceSizes.
 	 * The format of the object is { 'classname': [ minsize|-1, maxsize|-1 ] }.
 	 * @def function AppView.updateDeviceClass ()
 	 * @return bool
 	 */
 	updateDeviceClass: function () {
-		var css = window.CssTheme ? window.CssTheme.DeviceSizes : undefined; 
+		var css = window.DocviewjsTheme ? window.DocviewjsTheme.DeviceSizes : undefined; 
 
 		if ( !(css instanceof Object) ) {
 			return false;

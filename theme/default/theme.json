@@ -2,6 +2,6 @@
 	"copy": {
 		"view/View/StockImg/glyphiconshalflings-regular.woff": "StockImg/glyphiconshalflings-regular.woff",
 		"README.md": "README.md",
-		"BOOTSTRAP_LICENSE.txt": "BOOTSTRAP_LICENSE.txt"
+		"BOOTSTRAP_LICENSE": "BOOTSTRAP_LICENSE"
 	}
 }
