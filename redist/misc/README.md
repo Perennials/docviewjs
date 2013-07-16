@@ -7,7 +7,7 @@ docviewjs templates in HTML script elements like these:
 </script>
 ```
 
-Install the file in Packages/User or wherever you please and set syntax to "docviewjs <%".
+Install the file in Packages/User or wherever you please and set the syntax to "docviewjs <%".
 This only recognizes the default template syntax which is <% .. %> <%= .. %> and <%! .. %>.
 You need to edit the file if you are using different syntax settings than default.
 

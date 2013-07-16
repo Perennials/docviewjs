@@ -31,6 +31,8 @@
 			<string>docviewjs.template.embedded.js</string>
 			<key>settings</key>
 			<dict>
+				<key>foreground</key>
+				<string>#FFFFFF</string>
 				<key>background</key>
 				<string>#383838</string>
 			</dict>

@@ -65,49 +65,12 @@
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>begin</key>
-							<string>(&lt;%)(?:(!)|(=))?</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>docviewjs.template.begin.embed</string>
-								</dict>
-								<key>2</key>
-								<dict>
-									<key>name</key>
-									<string>docviewjs.template.begin.embed.escape</string>
-								</dict>
-								<key>3</key>
-								<dict>
-									<key>name</key>
-									<string>docviewjs.template.begin.embed.interpolate</string>
-								</dict>
-							</dict>
-							<key>end</key>
-							<string>%&gt;</string>
-							<key>endCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>docviewjs.template.end.embed</string>
-								</dict>
-							</dict>
-							<key>name</key>
-							<string>docviewjs.template.embedded.js</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>source.js</string>
-								</dict>
-							</array>
+							<key>include</key>
+							<string>#docviewjs</string>
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>text.html.basic</string>
+							<string>#html-stuff</string>
 						</dict>
 					</array>
 				</dict>
@@ -120,6 +83,48 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>docviewjs</key>
+		<dict>
+			<key>begin</key>
+			<string>(&lt;%)(?:(!)|(=))?</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>docviewjs.template.begin.embed</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>docviewjs.template.begin.embed.escape</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>docviewjs.template.begin.embed.interpolate</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>%&gt;</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>docviewjs.template.end.embed</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>docviewjs.template.embedded.js</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.js</string>
+				</dict>
+			</array>
+		</dict>
 		<key>entities</key>
 		<dict>
 			<key>patterns</key>
@@ -148,6 +153,226 @@
 					<string>&amp;</string>
 					<key>name</key>
 					<string>invalid.illegal.bad-ampersand.html</string>
+				</dict>
+			</array>
+		</dict>
+		<key>html-stuff</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(&lt;)([a-zA-Z0-9:]++)(?=[^&gt;]*&gt;&lt;/\2&gt;)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.begin.html</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(&gt;)(&lt;)(/)(\2)(&gt;)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.end.html</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.begin.html meta.scope.between-tag-pair.html</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.begin.html</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.html</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.end.html</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.tag.any.html</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#tag-stuff-with-docviewjs</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>&lt;!--</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>--\s*&gt;</string>
+					<key>name</key>
+					<string>comment.block.html</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>--</string>
+							<key>name</key>
+							<string>invalid.illegal.bad-comments-or-CDATA.html</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#docviewjs</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>&lt;!</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>&gt;</string>
+					<key>name</key>
+					<string>meta.tag.sgml.html</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(?i:DOCTYPE)</string>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.tag.doctype.html</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(?=&gt;)</string>
+							<key>name</key>
+							<string>meta.tag.sgml.doctype.html</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>"[^"&gt;]*"</string>
+									<key>name</key>
+									<string>string.quoted.double.doctype.identifiers-and-DTDs.html</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#docviewjs</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\[CDATA\[</string>
+							<key>end</key>
+							<string>]](?=&gt;)</string>
+							<key>name</key>
+							<string>constant.other.inline-data.html</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#docviewjs</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>(\s*)(?!--|&gt;)\S(\s*)</string>
+							<key>name</key>
+							<string>invalid.illegal.bad-comments-or-CDATA.html</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#docviewjs</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#docviewjs</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(&lt;/?)([a-zA-Z0-9:]+)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.begin.html</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.other.html</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(&gt;)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.end.html</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.tag.other.html</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#tag-stuff-with-docviewjs</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#entities</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>&lt;&gt;</string>
+					<key>name</key>
+					<string>invalid.illegal.incomplete.html</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>&lt;</string>
+					<key>name</key>
+					<string>invalid.illegal.bad-angle-bracket.html</string>
 				</dict>
 			</array>
 		</dict>
@@ -181,6 +406,10 @@
 					<key>include</key>
 					<string>#entities</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#docviewjs</string>
+				</dict>
 			</array>
 		</dict>
 		<key>string-single-quoted</key>
@@ -213,6 +442,10 @@
 					<key>include</key>
 					<string>#entities</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#docviewjs</string>
+				</dict>
 			</array>
 		</dict>
 		<key>tag-generic-attribute</key>
@@ -237,6 +470,20 @@
 				<dict>
 					<key>include</key>
 					<string>#string-single-quoted</string>
+				</dict>
+			</array>
+		</dict>
+		<key>tag-stuff-with-docviewjs</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#tag-stuff</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#docviewjs</string>
 				</dict>
 			</array>
 		</dict>
