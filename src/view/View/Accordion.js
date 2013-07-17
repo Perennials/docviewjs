@@ -19,13 +19,15 @@ View.Accordion = function () {
 /**
  * @private
  */
-View.Accordion.fromTemplate = function ( element ) {
-	var ret = ViewTemplate.classFromTemplate( View.Accordion, element );
-	if ( element.getAttribute( 'behaviour' ) !== '' ) {
-		ret.setBehaviour( 'auto' );
+View.Accordion.defineStatic( {
+	fromTemplate: function ( element ) {
+		var ret = ViewTemplate.classFromTemplate( View.Accordion, element );
+		if ( element.getAttribute( 'behaviour' ) !== '' ) {
+			ret.setBehaviour( 'auto' );
+		}
+		View.TActiveView.fromTemplate( ret, element );
+		return ret;
 	}
-	View.TActiveView.fromTemplate( ret, element );
-	return ret;
-};
+} );
 
 View.Accordion.extend( View ).mixin( View.TActiveView );

@@ -4,7 +4,7 @@
 Class for synchronizing several callbacks.
 When a predefined number of callbacks notify
 the object, the lock is released.
-@def class Semaphore
+@def class Semaphore uses TEventDispatcher, TEventDispatcher2
 @author Borislav Peev <borislav.asdf@gmail.com>
 */
 
@@ -14,7 +14,7 @@ the object, the lock is released.
 @param function Callback to be notified when the lock is released.
 */
 function Semaphore ( nlocks, callback ) {
-    EventDispatcher.call( this );
+    TEventDispatcher.call( this );
     this._nLocks = nlocks;
     this._callback = callback;
 }
@@ -45,7 +45,7 @@ Semaphore.defineStatic( {
 
 } );
 
-Semaphore.extend( EventDispatcher, {
+Semaphore.define( {
 
 	/**
 	Notifies the lock once.
@@ -70,7 +70,7 @@ Semaphore.extend( EventDispatcher, {
 	lock: function () {
 		++this._nLocks;
 	}
-} );
+} ).mixin( TEventDispatcher, TEventDispatcher2, ResolveMixins( { 'notify': Semaphore } ) );
 
 /*@UNITESTS*/
 Unitest( 'Semaphore.*', function () {

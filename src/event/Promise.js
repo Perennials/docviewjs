@@ -8,11 +8,11 @@
 	 * Promise is a an object that holds a state and promises
 	 * to notify listeners for changes in that state even
 	 * if they start to listen after the state is changed.
-	 * @def class Promise extends EventDispatcher
+	 * @def class Promise uses TEventDispatcher, TEventDispatcher2
 	 * @author Borislav Peev <borislav.asdf@gmail.com>
 	 */
 	function Promise () {
-		EventDispatcher.call( this );
+		TEventDispatcher.call( this );
 		this._state = undefined;
 	}
 
@@ -29,11 +29,11 @@
 		}
 	} );
 
-	var EventDispatcher_addEventListener = EventDispatcher.prototype.addEventListener;
+	var TEventDispatcher_addEventListener = TEventDispatcher.prototype.addEventListener;
 
-	Promise.extend( EventDispatcher, {
+	Promise.define( {
 		addEventListener: function ( event, callback ) {
-			var ret = EventDispatcher_addEventListener.apply( this, arguments );
+			var ret = TEventDispatcher_addEventListener.apply( this, arguments );
 			if ( event == 'State.Changed' ) {
 				var state = this.getState()
 				callback( new Promise.StateChanged( state, state ) );
@@ -80,7 +80,9 @@
 				}
 			} ).add( this );
 		}
-	} )
+	} ).mixin( TEventDispatcher, TEventDispatcher2, ResolveMixins( {
+		'addEventListener': Promise
+	} ) );
 
 	exports.Promise = Promise;
 

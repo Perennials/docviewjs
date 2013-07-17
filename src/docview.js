@@ -3,9 +3,8 @@
 /*@*/require( "Prototype" );
 /*@*/require( "./event/EventListener.js" );
 /*@*/require( "./event/ManagedListener.js" );
-/*@*/require( "./event/TEventDispatcher2.js" );
-/*@*/require( "./event/EventDispatcher.js" );
-/*@*/require( "./event/TEventDispatcher.js" );
+/*@*/require( "./event/model/TEventDispatcher.js" );
+/*@*/require( "./event/model/TEventDispatcher2.js" );
 /*@*/require( "./event/Promise.js" );
 /*@*/require( "./event/Task.js" );
 /*@*/require( "./event/Callback.js" );
@@ -13,7 +12,8 @@
 /*@*/require( "./view/View.js" );
 /*@*/require( "./view/TextTemplate.js" );
 /*@*/require( "./view/ViewTemplate.js" );
-/*@*/require( "./view/TActiveView.js" );
+/*@*/require( "./view/model/TActiveView.js" );
+/*@*/require( "./view/View/model/TLabel.js" );
 /*@*/require( "./view/View/AppView.js" );
 /*@*/require( "./view/View/HtmlArea.js" );
 /*@*/require( "./view/View/TabStrip.js" );

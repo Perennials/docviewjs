@@ -1578,29 +1578,29 @@ table {
 .Accordion > .AccordionItem > .View {
   padding: 5px 10px;
 }
-.Accordion:not(.Layout-Horizontal) > .AccordionItem:not(.disabled).active > .View.AccordionItemTitle {
+.Accordion > .AccordionItem:not(.disabled).active > .View.AccordionItemTitle {
   color: #555555;
 }
-.Accordion:not(.Layout-Horizontal) > .AccordionItem:not(.disabled):not(.active) > .View.AccordionItemTitle {
+.Accordion > .AccordionItem:not(.disabled):not(.active) > .View.AccordionItemTitle {
   color: #428bca;
-}
-.Accordion:not(.Layout-Horizontal) > .AccordionItem:not(.disabled):not(.active):hover {
-  background-color: #f6f6f6;
   cursor: pointer;
 }
-.Accordion:not(.Layout-Horizontal) > .AccordionItem:not(.disabled):not(.active):hover > .View.AccordionItemTitle {
+.Accordion > .AccordionItem:not(.disabled):not(.active):hover {
+  background-color: #f6f6f6;
+}
+.Accordion > .AccordionItem:not(.disabled):not(.active):hover > .View.AccordionItemTitle {
   color: #2a6496;
 }
-.Accordion:not(.Layout-Horizontal) > .AccordionItem > .View:not(.AccordionItemTitle) {
+.Accordion > .AccordionItem > .View:not(.AccordionItemTitle) {
   border-top: 1px solid #dddddd;
 }
-.Accordion:not(.Layout-Horizontal) > .AccordionItem:not(.active) > .View:not(.AccordionItemTitle) {
+.Accordion > .AccordionItem:not(.active) > .View:not(.AccordionItemTitle) {
   display: none;
 }
-.Accordion:not(.Layout-Horizontal) > .AccordionItem > .View {
+.Accordion > .AccordionItem > .View {
   width: 100%;
 }
-.Accordion:not(.Layout-Horizontal) > .AccordionItem + .AccordionItem {
+.Accordion > .AccordionItem + .AccordionItem {
   margin-top: 5px;
 }
 .Spinner {

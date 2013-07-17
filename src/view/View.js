@@ -27,7 +27,7 @@ function View ( handle ) {
 	this._events = {};
 }
 
-View.mixin( TEventDispatcher2 ).define( {
+View.define( {
 
 	/**
 	 * Handle of the Layout associated with the View.
@@ -321,7 +321,7 @@ View.mixin( TEventDispatcher2 ).define( {
 		}
 		return this;
 	}
-} );
+} ).mixin( TEventDispatcher2 );
 
 /*@UNITESTS*/
 Unitest( 'View()', function () {

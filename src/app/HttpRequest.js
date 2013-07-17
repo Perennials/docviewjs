@@ -451,7 +451,7 @@
 			this._request.dispatchEvent( eventObject );
 			return this;
 		}
-	} ).mixin( TEventDispatcher2 );
+	} );
 
 	/*@UNITESTS*/
 	Unitest( 'HttpRequest.urlEncode()', function () {

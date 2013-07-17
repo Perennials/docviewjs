@@ -19,8 +19,8 @@ Features
 - Themeable.
 
 
-What does the XML templates look like?
---------------------------------------
+What do the XML templates look like?
+------------------------------------
 In docviewjs, the front end is described in XML (in this example embedded in an HTML document as "script"):
 ```xml
 <script type="template/docviewjs" id="ExampleXmlTemplate">

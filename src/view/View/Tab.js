@@ -8,9 +8,18 @@
  * @def class View.Tab extends View
  * @author Borislav Peev <borislav.asdf@gmail.com>
  */
-View.Tab = function () {
+
+/**
+ * @def constructor View.Tab ( options:Object|undefined )
+ * @param Object with predefined properties to set using {@see ViewTemplate.setupViewFromProperties()}.
+ */
+View.Tab = function ( options ) {
 	View.call( this );
+	View.TLabel.call( this );
 	this._element.classList.add( 'Tab' );
+	if ( options ) {
+		ViewTemplate.setupViewFromProperties( this, options );
+	}
 };
 
-View.Tab.extend( View );
+View.Tab.extend( View ).mixin( View.TLabel, ResolveMixins( { 'setText': View.TLabel } ) );

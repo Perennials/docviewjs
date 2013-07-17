@@ -58,14 +58,14 @@ Unitest( 'View.Txt.*', function () {
 	var r = window.R;
 	window.R = new Config( { str: { asd: 'asd' } } );
 
-	test( v.setText( '{str.asd}' ) === 'asd' );
+	test( v.setText( '{str.asd}' ) === v/*'asd'*/ );
 	test( v.getElement().textContent == 'asd' );
 	window.R = r;
 
 	v.setText( 'qwe' );
 	test( v.getElement().textContent == 'qwe' );
 
-	test( v.setText( null ) === null );
+	test( v.setText( null ) === v/*null*/ );
 	test( v.getElement().textContent == '' );
 
 } );

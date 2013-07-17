@@ -43,16 +43,18 @@ View.TActiveView = function () {
 	this._active = null;
 };
 
-View.TActiveView.fromTemplate = function ( view, element ) {
-	var child = view._element.firstChild;
-	while ( child ) {
-		if ( child._view.hasState( 'active' ) ) {
-			view.setActive( child._view );
-			break;
+View.TActiveView.defineStatic( {
+	fromTemplate: function ( view, element ) {
+		var child = view._element.firstChild;
+		while ( child ) {
+			if ( child._view.hasState( 'active' ) ) {
+				view.setActive( child._view );
+				break;
+			}
+			child = child.nextSibling;
 		}
-		child = child.nextSibling;
 	}
-};
+} );
 
 // dont use .define because we need these to be enumerable
 View.TActiveView.prototype = {

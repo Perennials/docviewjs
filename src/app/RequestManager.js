@@ -9,7 +9,7 @@
 	}
 
 	function RequestGroup ( name, policy ) {
-		EventDispatcher.call( this );
+		TEventDispatcher.call( this );
 
 		this._name = name;
 		this._policy = policy || 'ignore';
@@ -17,7 +17,7 @@
 		this._onRequestFinished = new EventListener( 'Request.Finished', _onRequestFinished.bind( this ) );
 	}
 
-	RequestGroup.extend( EventDispatcher, {
+	RequestGroup.define( {
 		addRequest: function ( options, callback ) {
 			if ( this._request ) {
 				if ( this._policy == 'abort' ) {
@@ -46,7 +46,7 @@
 				return false;
 			}
 		}
-	} );
+	} ).mixin( TEventDispatcher, TEventDispatcher2 );
 
 	/**
 	 * @def event RequestManager::RequestManager.Started
@@ -74,11 +74,11 @@
 	 * request and the request shouldn't be performed multiple times.
 	 * Such actions can be logically arranged in groups, where each
 	 * group can have its own active request independently of the other groups.
-	 * @def class RequestManager extends EventDispatcher
+	 * @def class RequestManager uses TEventDispatcher, TEventDispatcher2
 	 * @author Borislav Peev <borislav.asdf@gmail.com>
 	 */
 	function RequestManager () {
-		EventDispatcher.call( this );
+		TEventDispatcher.call( this );
 
 		this._groups = [];
 		this._activeRequests = 0;
@@ -89,7 +89,7 @@
 		this._onRequestGroupFinished = new EventListener( 'RequestGroup.Finished', _onRequestGroupFinished.bind( this ) );
 	}
 
-	RequestManager.extend( EventDispatcher, {
+	RequestManager.define( {
 
 		/**
 		 * @def private var RequestManager._groups
@@ -146,7 +146,7 @@
 		abortGroup: function ( group ) {
 			return this._groups[group].abort();
 		}
-	} );
+	} ).mixin( TEventDispatcher, TEventDispatcher2 );
 
 	exports.RequestManager = RequestManager;
 

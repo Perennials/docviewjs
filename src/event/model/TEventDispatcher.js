@@ -3,18 +3,18 @@
 
 /**
  * A custom EventTarget implementation that can be used for any object.
- * @def class EventDispatcher uses TEventDispatcher2
+ * @def mixin TEventDispatcher
  * @see http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget
  * @author Borislav Peev <borislav.asdf@gmail.com>
  */
-function EventDispatcher () {
+function TEventDispatcher () {
 	this._events = {};
 }
 
-EventDispatcher.define( {
+TEventDispatcher.prototype = {
 
 	/**
-	 * @def private var EventDispatcher._events
+	 * @def private var TEventDispatcher._events
 	 * @var object
 	 */
 
@@ -56,11 +56,11 @@ EventDispatcher.define( {
 		}
 		return true;
 	}
-} ).mixin( TEventDispatcher2 );
+};
 
 
 /*@UNITESTS*/
-Unitest( 'EventDispatcher.*', function () {
+Unitest( 'TEventDispatcher.*', function () {
 
 	var a = 0;
 	var acb = function ( evt ) {
@@ -77,7 +77,8 @@ Unitest( 'EventDispatcher.*', function () {
 
 	var evt = new CustomEvent( 'event', { bubbles: false, cancelable: true } );
 
-	var target = new EventDispatcher();
+	var target = new TEventDispatcher();
+	target.merge( TEventDispatcher2 );
 	target.addEventListener( 'event', acb, true );
 	target.on( 'event', bcb, false );
 	test( target.dispatchEvent( evt ) === true );
