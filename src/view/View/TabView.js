@@ -49,14 +49,14 @@ View.TabView.fromTemplate = function ( element ) {
 	ViewTemplate.addViewsFromChildren( ret, element );
 	if ( ret.getStrip() === null ) {
 		var strip = new View.TabStrip();
-		strip.setBehaviour( 'auto' );
+		strip.setBehavior( 'auto' );
 		ret.addView( strip );
 	}
 	if ( ret.getSwitch() === null ) {
 		ret.addView( new View.TabSwitch() );
 	}
-	if ( element.getAttribute( 'behaviour' ) !== '' ) {
-		ret.setBehaviour( 'auto' );
+	if ( element.getAttribute( 'behavior' ) !== '' ) {
+		ret.setBehavior( 'auto' );
 	}
 	return ret;
 };

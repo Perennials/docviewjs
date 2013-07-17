@@ -16,6 +16,8 @@
 /*@*/require( "./view/View/model/TLabel.js" );
 /*@*/require( "./view/View/AppView.js" );
 /*@*/require( "./view/View/HtmlArea.js" );
+/*@*/require( "./view/View/Button.js" );
+/*@*/require( "./view/View/Link.js" );
 /*@*/require( "./view/View/TabStrip.js" );
 /*@*/require( "./view/View/Tab.js" );
 /*@*/require( "./view/View/ViewSwitch.js" );
@@ -27,11 +29,12 @@
 /*@*/require( "./view/View/Accordion.js" );
 /*@*/require( "./view/View/AccordionItem.js" );
 /*@*/require( "./view/View/Spinner.js" );
-/*@*/require( "./behaviour/Behaviour.js" );
-/*@*/require( "./behaviour/Behaviour/AutoAccordion.js" );
-/*@*/require( "./behaviour/Behaviour/AutoTabView.js" );
-/*@*/require( "./behaviour/Behaviour/AutoTabStrip.js" );
-/*@*/require( "./behaviour/Behaviour/auto.js" );
+/*@*/require( "./behavior/Behavior.js" );
+/*@*/require( "./behavior/Behavior/AutoLink.js" );
+/*@*/require( "./behavior/Behavior/AutoAccordion.js" );
+/*@*/require( "./behavior/Behavior/AutoTabView.js" );
+/*@*/require( "./behavior/Behavior/AutoTabStrip.js" );
+/*@*/require( "./behavior/Behavior/auto.js" );
 /*@*/require( "./layout/Layout.js" );
 /*@*/require( "./layout/Layout/Horizontal.js" );
 /*@*/require( "./layout/Layout/Vertical.js" );

@@ -97,6 +97,67 @@
 
 <table id="tests" class="responsive align-center">
 
+
+	<script type="template/xml" id="tButton">
+		<View>
+			<View class="some-margin-top">
+				<Button text="Inactive" class="small-margin-right" />
+				<Button text="Focus" class="small-margin-right" />
+				<Button text="Hover" class="small-margin-right" />
+				<Button text="Active" state="active" class="small-margin-right" />
+				<Button text="Disabled" state="disabled" class="small-margin-right" />
+			</View>
+			<View class="some-margin-top">
+				<Button text="Button" class="small-margin-right" />
+				<Button text="primary" state="primary" class="small-margin-right" />
+				<Button text="success" state="success" class="small-margin-right" />
+				<Button text="danger" state="danger" class="small-margin-right" />
+				<Button text="info" state="info" class="small-margin-right" />
+				<Button text="warning" state="warning" class="small-margin-right" />
+				<Button text="inverse" state="inverse" class="small-margin-right" />
+				<Link text="Link" class="small-margin-right" />
+			</View>
+			<View class="some-margin-top">
+				<Button text="large" state="large" class="small-margin-right" />
+				<Button text="large" state="primary large" class="small-margin-right" />
+				<Button text="large" state="success large" class="small-margin-right" />
+				<Button text="large" state="danger large" class="small-margin-right" />
+				<Button text="large" state="info large" class="small-margin-right" />
+				<Button text="large" state="warning large" class="small-margin-right" />
+				<Button text="large" state="inverse large" class="small-margin-right" />
+				<Link text="Link" state="large" class="small-margin-right" />
+			</View>
+			<View class="some-margin-top">
+				<Button text="small" state="small" class="small-margin-right" />
+				<Button text="small" state="primary small" class="small-margin-right" />
+				<Button text="small" state="success small" class="small-margin-right" />
+				<Button text="small" state="danger small" class="small-margin-right" />
+				<Button text="small" state="info small" class="small-margin-right" />
+				<Button text="small" state="warning small" class="small-margin-right" />
+				<Button text="small" state="inverse small" class="small-margin-right" />
+				<Link text="Link" state="small" class="small-margin-right" />
+			</View>
+			<View class="some-margin-top">
+				<Button text="tiny" state="tiny" class="small-margin-right" />
+				<Button text="tiny" state="primary tiny" class="small-margin-right" />
+				<Button text="tiny" state="success tiny" class="small-margin-right" />
+				<Button text="tiny" state="danger tiny" class="small-margin-right" />
+				<Button text="tiny" state="info tiny" class="small-margin-right" />
+				<Button text="tiny" state="warning tiny" class="small-margin-right" />
+				<Button text="tiny" state="inverse tiny" class="small-margin-right" />
+				<Link text="Link" state="tiny" class="small-margin-right" />
+			</View>
+		</View>
+	</script>
+
+	<tr><td colspan="2">Button</td></tr>
+	<tr>
+		<td template="tButton"></td>
+		<td></td>
+	</tr>
+
+
+
 	<script type="template/xml" id="tTabStrip">
 		<TabStrip>
 			<Tab class="active"><Txt text="Active"/></Tab>

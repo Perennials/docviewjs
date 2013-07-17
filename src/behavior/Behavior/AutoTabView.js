@@ -32,15 +32,15 @@
 	}
 
 	/**
-	 * Automatic behaviour for {@see View.TabView}.
-	 * This behaviour will listen for 'ActiveView.Activated' in the {@see View.TabStrip}
+	 * Automatic behavior for {@see View.TabView}.
+	 * This behavior will listen for 'ActiveView.Activated' in the {@see View.TabStrip}
 	 * and activate view with the same index in the {@see View.ViewSwitch}.
-	 * @def class Behaviour.AutoTabView extends Behaviour
+	 * @def class Behavior.AutoTabView extends Behavior
 	 * @author Borislav Peev <borislav.asdf@gmail.com>
 	 */
 	
 	/**
-	 * @def constructor Behaviour.AutoTabView( tabview )
+	 * @def constructor Behavior.AutoTabView( tabview )
 	 * @param View.TabView
 	 */
 	function AutoTabView ( view ) {
@@ -48,14 +48,14 @@
 		this._onActivated = _getClickHandler().add( view );
 	}
 
-	AutoTabView.extend( Behaviour, {
+	AutoTabView.extend( Behavior, {
 		/**
-		 * @def private var Behaviour.AutoTabView._tabview
+		 * @def private var Behavior.AutoTabView._tabview
 		 * @var View.TabView
 		 */
 		
 		/**
-		 * @def private var Behaviour.AutoTabView._onActivated
+		 * @def private var Behavior.AutoTabView._onActivated
 		 * @var EventListener
 		 */
 
@@ -66,17 +66,17 @@
 		}
 	} );
 
-	View.TabView.prototype.AutoBehaviour = AutoTabView;
+	View.TabView.prototype.AutoBehavior = AutoTabView;
 
 	exports.AutoTabView = AutoTabView;
 
-})( this.Behaviour );
+})( this.Behavior );
 
 
 /*@UNITESTS*/
 Unitest( 'AutoTabView()', function () {
 	var v = new View.TabView();
-	v.setBehaviour( 'auto' );
+	v.setBehavior( 'auto' );
 	var t1 = new View.Tab();
 	var t2 = new View.Tab();
 	var v1 = new View();
@@ -84,7 +84,7 @@ Unitest( 'AutoTabView()', function () {
 	
 	v.getStrip().addView( t1 );
 	v.getStrip().addView( t2 );
-	v.getStrip().setBehaviour( 'auto' );
+	v.getStrip().setBehavior( 'auto' );
 	v.getSwitch().addView( v1 );
 	v.getSwitch().addView( v2 );
 

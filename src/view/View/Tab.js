@@ -16,7 +16,9 @@
 View.Tab = function ( options ) {
 	View.call( this );
 	View.TLabel.call( this );
-	this._element.classList.add( 'Tab' );
+	var classlist = this._element.classList;
+	classlist.add( 'Label' );
+	classlist.add( 'Tab' );
 	if ( options ) {
 		ViewTemplate.setupViewFromProperties( this, options );
 	}

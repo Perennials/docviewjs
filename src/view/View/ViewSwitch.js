@@ -17,7 +17,7 @@ View.ViewSwitch = function () {
 	View.call( this );
 	View.TActiveView.call( this );
 	this._element.classList.add( 'ViewSwitch' );
-	this.setBehaviour( 'auto' );
+	this.setBehavior( 'auto' );
 };
 
 /**

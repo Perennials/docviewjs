@@ -25,14 +25,14 @@
 	}
 
 	/**
-	 * Automatic behaviour for {@see View.Accordion}.
-	 * This behaviour will listen for clicks in .AccordionItem's and activate them.
-	 * @def class Behaviour.AutoAccordion extends Behaviour
+	 * Automatic behavior for {@see View.Accordion}.
+	 * This behavior will listen for clicks in .AccordionItem's and activate them.
+	 * @def class Behavior.AutoAccordion extends Behavior
 	 * @author Borislav Peev <borislav.asdf@gmail.com>
 	 */
 	
 	/**
-	 * @def constructor Behaviour.AutoAccordion ( view )
+	 * @def constructor Behavior.AutoAccordion ( view )
 	 * @param View.Accordion
 	 */
 	function AutoAccordion ( view ) {
@@ -46,15 +46,15 @@
 		}, 'bubble' ).add( view );
 	}
 
-	AutoAccordion.extend( Behaviour, {
+	AutoAccordion.extend( Behavior, {
 
 		/**
-		 * @def private var Behaviour.AutoAccordion._onClick
+		 * @def private var Behavior.AutoAccordion._onClick
 		 * @var EventListener
 		 */
 
 		/**
-		 * @def private var Behaviour.AutoAccordion._accordion
+		 * @def private var Behavior.AutoAccordion._accordion
 		 * @var View.Accordion
 		 */
 
@@ -65,17 +65,17 @@
 		}
 	} );
 
-	View.Accordion.prototype.AutoBehaviour = AutoAccordion;
+	View.Accordion.prototype.AutoBehavior = AutoAccordion;
 
 	exports.AutoAccordion = AutoAccordion;
 
-})( this.Behaviour );
+})( this.Behavior );
 
 
 /*@UNITESTS*/
 Unitest( 'AutoAccordion()', function () {
 	var v = new View.Accordion();
-	v.setBehaviour( 'auto' );
+	v.setBehavior( 'auto' );
 	var t1 = new View.AccordionItem();
 	var v1 = new View();
 	v1.setClass( 'AccordionItemTitle' );

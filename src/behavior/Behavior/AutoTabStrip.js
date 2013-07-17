@@ -26,15 +26,15 @@
 	}
 
 	/**
-	 * Automatic behaviour for {@see View.TabStrip}.
-	 * This behaviour will listen for clicks in the {@see View.TabStrip}
+	 * Automatic behavior for {@see View.TabStrip}.
+	 * This behavior will listen for clicks in the {@see View.TabStrip}
 	 * items and activate them.
-	 * @def class Behaviour.AutoTabStrip extends Behaviour
+	 * @def class Behavior.AutoTabStrip extends Behavior
 	 * @author Borislav Peev <borislav.asdf@gmail.com>
 	 */
 
 	/**
-	 * @def constructor Behaviour.AutoTabStrip ( view )
+	 * @def constructor Behavior.AutoTabStrip ( view )
 	 * @param View.TabStrip
 	 */
 	function AutoTabStrip ( view ) {
@@ -48,14 +48,14 @@
 		}, 'bubble' ).add( view );
 	}
 
-	AutoTabStrip.extend( Behaviour, {
+	AutoTabStrip.extend( Behavior, {
 		/**
-		 * @def private Behaviour.AutoTabStrip._onClick
+		 * @def private Behavior.AutoTabStrip._onClick
 		 * @var EventListener
 		 */
 		
 		/**
-		 * @def private Behaviour.AutoTabStrip._strip
+		 * @def private Behavior.AutoTabStrip._strip
 		 * @var View.TabStrip
 		 */
 
@@ -66,16 +66,16 @@
 		}
 	} );
 
-	View.TabStrip.prototype.AutoBehaviour = AutoTabStrip;
+	View.TabStrip.prototype.AutoBehavior = AutoTabStrip;
 
 	exports.AutoTabStrip = AutoTabStrip;
 
-})( this.Behaviour );
+})( this.Behavior );
 
 /*@UNITESTS*/
 Unitest( 'AutoTabStrip()', function () {
 	var v = new View.TabStrip();
-	v.setBehaviour( 'auto' );
+	v.setBehavior( 'auto' );
 	var t1 = new View.Tab();
 	var t2 = new View.Tab();
 	v.addView( t1 );

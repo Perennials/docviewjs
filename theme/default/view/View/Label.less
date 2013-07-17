@@ -1,13 +1,18 @@
-.Label {
+.Label,
+.TLabel {
 	white-space: nowrap;
 }
 
 .Label > .StockImg + .Txt,
-.Label > .Img + .Txt {
+.TLabel > .StockImg + .Txt,
+.Label > .Img + .Txt,
+.TLabel > .Img + .Txt {
 	margin-left: @small-margin-h;
 }
 
 .Label > .Txt + .StockImg,
-.Label > .Txt + .Img {
+.TLabel > .Txt + .StockImg,
+.Label > .Txt + .Img,
+.TLabel > .Txt + .Img {
 	margin-left: @small-margin-h;
 }

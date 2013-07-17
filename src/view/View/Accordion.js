@@ -22,8 +22,8 @@ View.Accordion = function () {
 View.Accordion.defineStatic( {
 	fromTemplate: function ( element ) {
 		var ret = ViewTemplate.classFromTemplate( View.Accordion, element );
-		if ( element.getAttribute( 'behaviour' ) !== '' ) {
-			ret.setBehaviour( 'auto' );
+		if ( element.getAttribute( 'behavior' ) !== '' ) {
+			ret.setBehavior( 'auto' );
 		}
 		View.TActiveView.fromTemplate( ret, element );
 		return ret;

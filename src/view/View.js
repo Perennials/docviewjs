@@ -23,7 +23,7 @@ function View ( handle ) {
 	handle.classList.add( 'View' );
 	this._element = handle;
 	this._layout = null;
-	this._behaviours = null;
+	this._behaviors = null;
 	this._events = {};
 }
 
@@ -36,9 +36,9 @@ View.define( {
 	 */
 
 	/**
-	 * Handle of the Behaviour(s) associated with the View.
-	 * @def protected var View._behaviours
-	 * @var Behaviour[]|null
+	 * Handle of the Behavior(s) associated with the View.
+	 * @def protected var View._behaviors
+	 * @var Behavior[]|null
 	 */
 
 	/**
@@ -78,15 +78,15 @@ View.define( {
 	/**
 	 * @unstable
 	 */
-	addBehaviour: function ( behaviour ) {
-		if ( !(behaviour instanceof Behaviour) ) {
-			behaviour = Behaviour.findByName( behaviour );
-			if ( behaviour !== null ) {
-				behaviour = new behaviour( this );
+	addBehavior: function ( behavior ) {
+		if ( !(behavior instanceof Behavior) ) {
+			behavior = Behavior.findByName( behavior );
+			if ( behavior !== null ) {
+				behavior = new behavior( this );
 			}
 		}
-		if ( behaviour instanceof Behaviour ) {
-			( this._behaviours || ( this._behaviours = [] ) ).push( behaviour );
+		if ( behavior instanceof Behavior ) {
+			( this._behaviors || ( this._behaviors = [] ) ).push( behavior );
 			return true;
 		}
 		return false;
@@ -95,8 +95,8 @@ View.define( {
 	/**
 	 * @unstable
 	 */
-	getBehaviours: function () {
-		return this._behaviours;
+	getBehaviors: function () {
+		return this._behaviors;
 	},
 
 	/**
@@ -292,8 +292,8 @@ View.define( {
 	/**
 	 * @unstable
 	 */
-	setBehaviour: function ( behaviour ) {
-		return this.addBehaviour( behaviour );
+	setBehavior: function ( behavior ) {
+		return this.addBehavior( behavior );
 	},
 
 

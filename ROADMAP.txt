@@ -1,6 +1,6 @@
 0.6
 
-	Push button, Toggle button
+	Use bootstrap 2 styles for code
 
 generic
 	
@@ -27,7 +27,7 @@ future
 	
 	Custom scrolling ( hidden scrollbars, shown only while scrolling over the content, mac like )
 	
-	Button(+toggle,+radio), Input(+multiline,+password), Overlay, Popup, Dialog (+in separate window), Tooltip, Dropdown list,
+	Checkbox, radio, Input(+multiline,+password), Overlay, Popup, Dialog (+in separate window), Tooltip, Dropdown list,
 	Virtual scroller, Date picker, Grid, Slider, Spinner (input with arrows up and down to change numbers), Menu,
 	Autocomplete, Progress bar, Tree
 

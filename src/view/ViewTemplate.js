@@ -111,7 +111,7 @@
 	 * with the same name as the tag name of the element.
 	 * If the class exists it will check it it has a static
 	 * function called fromTemplate() and call it if it does.
-	 * This function allows for customized behaviour.
+	 * This function allows for customized behavior.
 	 * Otherwise {@see ViewTemplate.classFromTemplate()} will be used
 	 * to create the view.
 	 * @def static function ViewTemplate.createViewFromElement ( element )

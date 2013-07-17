@@ -9,6 +9,8 @@
 @import "view/View/Img.less";
 @import "view/View/StockImg.less";
 @import "view/View/Label.less";
+@import "view/View/Button.less";
+@import "view/View/Link.less";
 @import "view/View/TabStrip.less";
 @import "view/View/Accordion.less";
 @import "view/View/Spinner.less";
@@ -21,6 +23,10 @@
 .disabled {
 	opacity: @opacity-disabled;
 	//.transition( opacity, 0.4s );
+}
+
+:focus:not(.disabled) {
+	.tab-focus();
 }
 
 .disabled,
