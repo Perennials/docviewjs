@@ -258,6 +258,15 @@ View.define( {
 	},
 
 	/**
+	Retrieves the text content of the view.
+	@def function View.getText ()
+	@return string|null
+	*/
+	getText: function () {
+		return this._element.textContent;
+	},
+
+	/**
 	 * Sets the "id" attribute of the underlaying DOM element.
 	 * @def function View.setId ( id )
 	 * @param string|null

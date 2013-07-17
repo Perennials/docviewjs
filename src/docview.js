@@ -15,6 +15,7 @@
 /*@*/require( "./view/model/TActiveView.js" );
 /*@*/require( "./view/View/model/TLabel.js" );
 /*@*/require( "./view/View/AppView.js" );
+/*@*/require( "./view/View/CodeBlock.js" );
 /*@*/require( "./view/View/HtmlArea.js" );
 /*@*/require( "./view/View/Button.js" );
 /*@*/require( "./view/View/Link.js" );

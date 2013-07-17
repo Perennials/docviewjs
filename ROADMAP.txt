@@ -1,9 +1,3 @@
-0.6
-
-	Use bootstrap 2 styles for code
-
-generic
-	
 	Style: Improve error handling, things expected to work should throw rather than returing bool or null (like View.addView()) (search for 
 	return null or return false)
 
@@ -12,7 +6,7 @@ generic
 	Revise OOP. Get rid of extends and use only mixins and interfaces. mixins should keep track of what is mixed in the object and .instanceof()
 	should check it if the real instanceof fails.
 
-future
+	Once we have all components and place and there is enough time get rid of all dirty boootstrap CSS.
 
 	In the testsuite the tootip for the "Label" in not shown in IE. This is because of the order in which XML attributes are iterated which is different in IE. Since the argument order can not be relied upon other solution is needed.
 

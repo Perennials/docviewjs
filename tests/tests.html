@@ -158,6 +158,27 @@
 
 
 
+
+	<script type="template/xml" id="tCodeBlock">
+		<CodeBlock><![CDATA[function nextSibling ( el ) {
+	el = el.nextSibling;
+	while ( el && el.nodeType != el.ELEMENT_NODE ) {
+		el = el.nextSibling;
+	}
+	return el;
+}]]></CodeBlock>
+	</script>
+
+	<tr><td colspan="2">CodeBlock</td></tr>
+	<tr>
+		<td template="tCodeBlock"></td>
+		<td>Selection should work.</td>
+	</tr>
+
+
+
+
+
 	<script type="template/xml" id="tTabStrip">
 		<TabStrip>
 			<Tab class="active"><Txt text="Active"/></Tab>

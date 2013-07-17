@@ -179,6 +179,9 @@
 	 * @return string
 	 */
 	TextTemplate.escapeHtml = function ( text ) {
+		if ( !String.isString( text ) ) {
+			text = String( text );
+		}
 		return text.replace( _htmlEscaper, _escapeHtml );
 	};
 
