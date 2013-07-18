@@ -5,6 +5,7 @@
 @import "layout/Layout/Horizontal.less";
 @import "view/View/AppView.less";
 @import "view/View/CodeBlock.less";
+@import "view/View/Panel.less";
 @import "view/View/HtmlArea.less";
 @import "view/View/Txt.less";
 @import "view/View/Img.less";
@@ -23,17 +24,23 @@
 
 .disabled {
 	opacity: @opacity-disabled;
-	//.transition( opacity, 0.4s );
+	.transition( opacity, 0.2s );
+	.box-shadow( none );
+
+	&, & * {
+		.no-user-select
+	}
 }
 
-:focus:not(.disabled) {
-	.tab-focus();
-}
+// in ie everything has focus
+// :focus:not(.disabled) {
+//	.tab-focus();
+// }
 
-.disabled,
-.disabled * {
-	.no-user-select;
-}
+// layouts are preferred but since we cant use flexboxes because of ie9,
+// we have some limitations with the horizontal layouts
+.float-right { float: right; }
+.float-left { float: left; }
 
 .no-padding { padding: 0; }
 .no-padding-top { padding-top: 0; }

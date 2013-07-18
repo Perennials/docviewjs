@@ -25,7 +25,7 @@
 	 */
 	TabStrip.fromTemplate = function ( element ) {
 		var ret = ViewTemplate.classFromTemplate( TabStrip, element );
-		if ( element.getAttribute( 'behavior' ) !== '' ) {
+		if ( element.getAttribute( 'behavior' ) === null ) {
 			ret.setBehavior( 'auto' );
 		}
 		View.TActiveView.fromTemplate( ret, element );

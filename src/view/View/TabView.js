@@ -55,7 +55,7 @@ View.TabView.fromTemplate = function ( element ) {
 	if ( ret.getSwitch() === null ) {
 		ret.addView( new View.TabSwitch() );
 	}
-	if ( element.getAttribute( 'behavior' ) !== '' ) {
+	if ( element.getAttribute( 'behavior' ) === null ) {
 		ret.setBehavior( 'auto' );
 	}
 	return ret;

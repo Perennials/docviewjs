@@ -28,7 +28,7 @@ View.Link = function ( options ) {
 View.Link.defineStatic( {
 	fromTemplate: function ( element ) {
 		var ret = ViewTemplate.classFromTemplate( View.Link, element );
-		if ( element.getAttribute( 'behavior' ) !== '' ) {
+		if ( element.getAttribute( 'behavior' ) === null ) {
 			ret.setBehavior( 'auto' );
 		}
 		return ret;

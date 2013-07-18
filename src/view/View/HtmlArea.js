@@ -41,12 +41,17 @@
 
 	var RE_VIEW = /(<\/?)view:([a-z\-]+)/gi;
 	function RECB_VIEW ( m, m1, tag ) {
-		var tags = tag.split( '-' );
-		for ( var i = tags.length - 1; i >= 0; --i ) {
-			var t = tags[i];
-			tags[i] = t.charAt( 0 ).toUpperCase() + t.substr( 1 );
+		if ( tag.indexOf( '-' ) > 0 ) {
+			var tags = tag.split( '-' );
+			for ( var i = tags.length - 1; i >= 0; --i ) {
+				var t = tags[i];
+				tags[i] = t.charAt( 0 ).toUpperCase() + t.substr( 1 );
+			}
+			return m1 + tags.join( '' );
 		}
-		return m1 + tags.join();
+		else {
+			return m1 + tag.charAt( 0 ).toUpperCase() + tag.substr( 1 );
+		}
 	}
 
 	function _findViews ( element ) {
@@ -55,7 +60,8 @@
 			if ( el.localName.startsWith( 'view:' ) ) {
 				var html = el.outerHTML.replace( RE_VIEW, RECB_VIEW );
 				var newel = ViewTemplate.loadString( html ).createView().getElement();
-				el = el.parentNode.replaceChild( newel, el );
+				el.parentNode.replaceChild( newel, el );
+				el = newel;
 			}
 			else {
 				_findViews( el );
@@ -90,6 +96,8 @@
 		var h = View.HtmlArea.fromTemplate( t.getDocument().firstChild );
 		test( h instanceof View.HtmlArea );
 		test( h.getElement().innerHTML == '<h1>header</h1>' );
+		h.setHtml( '<view:html-area>sub</view:html-area><view:html-area>suba</view:html-area>' );
+		test( h.getHtml() == '<div class="View HtmlArea">sub</div><div class="View HtmlArea">suba</div>' );
 
 	} );
 	/*UNITESTS@*/

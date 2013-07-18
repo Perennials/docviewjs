@@ -1,0 +1,80 @@
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.Panel {
+	padding: 15px;
+	margin-bottom: 20px;
+	background-color: @panel-bg;
+	border: 1px solid @panel-border;
+	border-radius: @panel-border-radius;
+	.box-shadow(0 1px 1px rgba(0,0,0,.05));
+}
+
+// Optional heading
+.Panel > .PanelTitle {
+	margin: -15px -15px 15px;
+	padding: 10px 15px;
+	font-size: (@font-size-base * 1.25);
+	font-weight: 500;
+	background-color: @panel-heading-bg;
+	border-bottom: 1px solid @panel-border;
+	border-top-left-radius:	(@panel-border-radius - 1);
+	border-top-right-radius: (@panel-border-radius - 1);
+	overflow-x: hidden;
+}
+
+// Optional footer (stays gray in every modifier class)
+.Panel > .PanelFooter {
+	margin: 15px -15px -15px;
+	padding: 10px 15px;
+	background-color: @panel-footer-bg;
+	border-top: 1px solid @panel-border;
+	border-bottom-left-radius:	(@panel-border-radius - 1);
+	border-bottom-right-radius: (@panel-border-radius - 1);
+	overflow-x: hidden;
+}
+
+// Contextual variations
+.Panel.primary {
+	border-color: @panel-primary-border;
+	> .PanelTitle {
+		color: @panel-primary-text;
+		background-color: @panel-primary-heading-bg;
+		border-color: @panel-primary-border;
+	}
+}
+.Panel.success {
+	border-color: @panel-success-border;
+	> .PanelTitle {
+		color: @panel-success-text;
+		background-color: @panel-success-heading-bg;
+		border-color: @panel-success-border;
+	}
+}
+.Panel.warning {
+	border-color: @panel-warning-border;
+	> .PanelTitle {
+		color: @panel-warning-text;
+		background-color: @panel-warning-heading-bg;
+		border-color: @panel-warning-border;
+	}
+}
+.Panel.danger {
+	border-color: @panel-danger-border;
+	> .PanelTitle {
+		color: @panel-danger-text;
+		background-color: @panel-danger-heading-bg;
+		border-color: @panel-danger-border;
+	}
+}
+.Panel.info {
+	border-color: @panel-info-border;
+	> .PanelTitle {
+		color: @panel-info-text;
+		background-color: @panel-info-heading-bg;
+		border-color: @panel-info-border;
+	}
+}

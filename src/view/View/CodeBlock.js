@@ -17,7 +17,7 @@ View.CodeBlock = function ( content ) {
 	var handle = this._element;
 	handle.classList.add( 'CodeBlock' );
 	if ( content ) {
-		this.setText( content );
+		this.setHtml( content );
 	}
 };
 
@@ -39,7 +39,23 @@ View.CodeBlock.defineStatic( {
 	}
 } );
 
-View.CodeBlock.extend( View );
+View.CodeBlock.extend( View, {
+
+	/**
+	 * @unstable
+	 */
+	setHtml: function ( html ) {
+		this._element.innerHTML = html;
+		return this;
+	},
+
+	/**
+	 * @unstable
+	 */
+	getHtml: function ( html ) {
+		return this._element.innerHTML;
+	}
+} );
 
 /*@UNITESTS*/
 Unitest( 'CodeBlock', function () {
@@ -47,7 +63,7 @@ Unitest( 'CodeBlock', function () {
 	var t = ViewTemplate.loadString( '<View.CodeBlock><![CDATA[<h1>header</h1>]]></View.CodeBlock>' );
 	var h = View.CodeBlock.fromTemplate( t.getDocument().firstChild );
 	test( h instanceof View.CodeBlock );
-	test( h.getText() == '<h1>header</h1>' );
+	test( h.getHtml() == '<h1>header</h1>' );
 
 } );
 /*UNITESTS@*/

@@ -23,6 +23,7 @@ document.write( '<script src="'+DOCVIEWJS_LOCATION+'../src/view/model/TActiveVie
 document.write( '<script src="'+DOCVIEWJS_LOCATION+'../src/view/View/model/TLabel.js"></script>\n' );
 document.write( '<script src="'+DOCVIEWJS_LOCATION+'../src/view/View/AppView.js"></script>\n' );
 document.write( '<script src="'+DOCVIEWJS_LOCATION+'../src/view/View/CodeBlock.js"></script>\n' );
+document.write( '<script src="'+DOCVIEWJS_LOCATION+'../src/view/View/Panel.js"></script>\n' );
 document.write( '<script src="'+DOCVIEWJS_LOCATION+'../src/view/View/HtmlArea.js"></script>\n' );
 document.write( '<script src="'+DOCVIEWJS_LOCATION+'../src/view/View/Button.js"></script>\n' );
 document.write( '<script src="'+DOCVIEWJS_LOCATION+'../src/view/View/Link.js"></script>\n' );

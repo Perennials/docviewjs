@@ -13,6 +13,7 @@ Features
 - Classical object oriented API.
 - Pure JavaScript, no jQuery, etc.
 - Built on components, no handwriting HTML.
+- Pluggable behaviors for components.
 - XML templates.
 - Micro templates with syntax highlighting.
 - Localization aware.

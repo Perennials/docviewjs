@@ -274,8 +274,6 @@ table {
   display: block;
   padding: 5px 10px;
   white-space: pre;
-  word-break: break-all;
-  word-wrap: break-word;
   overflow-x: auto;
   cursor: text;
   -webkit-user-select: text;
@@ -283,6 +281,75 @@ table {
   -ms-user-select: text;
   -o-user-select: text;
   user-select: text;
+}
+.Panel {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.Panel > .PanelTitle {
+  margin: -15px -15px 15px;
+  padding: 10px 15px;
+  font-size: 17.5px;
+  font-weight: 500;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #dddddd;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  overflow-x: hidden;
+}
+.Panel > .PanelFooter {
+  margin: 15px -15px -15px;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #dddddd;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow-x: hidden;
+}
+.Panel.primary {
+  border-color: #428bca;
+}
+.Panel.primary > .PanelTitle {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+.Panel.success {
+  border-color: #d6e9c6;
+}
+.Panel.success > .PanelTitle {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.Panel.warning {
+  border-color: #fbeed5;
+}
+.Panel.warning > .PanelTitle {
+  color: #c09853;
+  background-color: #fcf8e3;
+  border-color: #fbeed5;
+}
+.Panel.danger {
+  border-color: #eed3d7;
+}
+.Panel.danger > .PanelTitle {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+.Panel.info {
+  border-color: #bce8f1;
+}
+.Panel.info > .PanelTitle {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
 }
 .HtmlArea {
   cursor: text;
@@ -587,8 +654,6 @@ table {
   display: block;
   padding: 5px 10px;
   white-space: pre;
-  word-break: break-all;
-  word-wrap: break-word;
   overflow-x: auto;
   cursor: text;
   -webkit-user-select: text;
@@ -1527,6 +1592,9 @@ table {
 .StockImg.collapse-top:before {
   content: '\e160';
 }
+.Label {
+  display: inline-block;
+}
 .Label,
 .TLabel {
   white-space: nowrap;
@@ -1555,11 +1623,18 @@ table {
   border: 1px solid transparent;
   border-radius: 4px;
   white-space: nowrap;
+  margin-top: -1px;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.25);
 }
-.Button.disabled {
-  -webkit-box-shadow: none;
-  box-shadow: none;
+.Button:focus:not(.disabled) {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: none;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -ms-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
 .Button {
   color: #333333;
@@ -1943,7 +2018,7 @@ table {
 .TabStrip > .Tab {
   top: 1px;
   border: 1px solid transparent;
-  border-radius: 3px 3px 0 0;
+  border-radius: 4px 4px 0 0;
   padding: 5px 10px;
 }
 .TabStrip > .Tab.active {
@@ -1965,7 +2040,7 @@ table {
 }
 .Accordion > .AccordionItem {
   border: 1px solid #dddddd;
-  border-radius: 3px;
+  border-radius: 4px;
   /*&.disabled {
 			& {
 				border-color: @border-color-disabled;
@@ -2097,16 +2172,12 @@ to {
 }
 .disabled {
   opacity: 0.4;
-}
-:focus:not(.disabled) {
-  border-color: rgba(82, 168, 236, 0.8);
-  outline: none;
-  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  -ms-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .disabled,
 .disabled * {
@@ -2116,6 +2187,12 @@ to {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
 }
 .no-padding {
   padding: 0;

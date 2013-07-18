@@ -27,6 +27,28 @@ function View ( handle ) {
 	this._events = {};
 }
 
+View.defineStatic( {
+	Data: function ( databinding ) {
+		var id = ++View.Data._lastId;
+		View.Data._bindings[ id ] = databinding;
+		return id;
+	}
+} );
+
+View.Data.defineStatic( {
+	_lastId: 0,
+	_bindings: {}
+} );
+
+var $bind = View.Data;
+
+Object.defineProperty( HTMLElement.prototype, 'getView', {
+	value: function () {
+		return this._view;
+	},
+	writable: true
+} )
+
 View.define( {
 
 	/**
@@ -48,8 +70,31 @@ View.define( {
 	 */
 
 	/**
+	 * Data bound to the view.
+	 * @def protected var View._data
+	 * @var mixed
+	 */
+
+	/**
 	 * @def private var View._events:object
 	 */
+
+	/**
+	@unstable
+	*/
+	setData: function ( bindingid ) {
+		this._data = View.Data._bindings[ bindingid ];
+		// so the data can be gc-ed eventually
+		delete View.Data._bindings[ bindingid ];
+		return this;
+	},
+
+	/**
+	@unstable
+	*/
+	getData: function () {
+		return this._data;
+	},
 
 	/**
 	 * @unstable
@@ -270,7 +315,7 @@ View.define( {
 	 * Sets the "id" attribute of the underlaying DOM element.
 	 * @def function View.setId ( id )
 	 * @param string|null
-	  * @return this
+	 * @return this
 	 */
 	setId: function ( id ) {
 		this._element.id = id;

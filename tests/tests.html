@@ -31,6 +31,7 @@
 
 	table#tests {
 		border-collapse: collapse;
+		width: 90%;
 	}
 
 	table#tests > tbody > tr:nth-of-type(2n+1) > td {
@@ -44,7 +45,6 @@
 		width: 50%;
 		border: 1px solid #DDDDDD;
 		vertical-align: middle;
-		text-align: center;
 	}
 
 	.green { color: green; }
@@ -95,7 +95,55 @@
 	<p><b>IE9 exceptions</b> spinner annimation doesn't work, text selection works everywhere.</p>
 </div>
 
-<table id="tests" class="responsive align-center">
+<table id="tests" class="align-center">
+
+
+
+	<script type="template/xml" id="tPanel">
+		<View>
+			<View layout="Horizontal">
+				<Panel>
+					<PanelTitle><Label text="Panel" /></PanelTitle>
+					<Txt text="content ...content..." />
+					<PanelFooter><Txt text="footer" /></PanelFooter>
+				</Panel>
+				<Panel state="primary" class="some-margin-left">
+					<PanelTitle><Label text="primary" /></PanelTitle>
+					<Txt text="content ...content..." />
+					<PanelFooter><Txt text="footer" /></PanelFooter>
+				</Panel>
+				<Panel state="success" class="some-margin-left">
+					<PanelTitle><Label text="success" /></PanelTitle>
+					<Txt text="content ...content..." />
+					<PanelFooter><Txt text="footer" /></PanelFooter>
+				</Panel>
+			</View>
+			<View layout="Horizontal">
+				<Panel state="warning">
+					<PanelTitle><Label text="warning" /></PanelTitle>
+					<Txt text="content ...content..." />
+					<PanelFooter><Txt text="footer" /></PanelFooter>
+				</Panel>
+				<Panel state="danger" class="some-margin-left">
+					<PanelTitle><Label text="danger" /></PanelTitle>
+					<Txt text="content ...content..." />
+					<PanelFooter><Txt text="footer" /></PanelFooter>
+				</Panel>
+				<Panel state="info" class="some-margin-left">
+					<PanelTitle><Label text="info" /></PanelTitle>
+					<Txt text="content ...content..." />
+					<PanelFooter><Txt text="footer" /></PanelFooter>
+				</Panel>
+			</View>
+		</View>
+	</script>
+
+	<tr><td colspan="2">Panel</td></tr>
+	<tr>
+		<td template="tPanel"></td>
+		<td></td>
+	</tr>
+
 
 
 	<script type="template/xml" id="tButton">

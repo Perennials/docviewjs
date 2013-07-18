@@ -1,3 +1,9 @@
+0.6
+
+	Add the states from HtmlArea > .label to .Label and remove them from HtmlArea
+
+future:
+
 	Style: Improve error handling, things expected to work should throw rather than returing bool or null (like View.addView()) (search for 
 	return null or return false)
 

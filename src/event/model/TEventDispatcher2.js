@@ -38,6 +38,6 @@ var TEventDispatcher2 = {
 	 * @return EventListener
 	 */
 	once: function ( event, callback, phase ) {
-		return new EventListener( event, callback, phase).once( this );
+		return new EventListener( event, callback, phase ).once( this );
 	}
 };
