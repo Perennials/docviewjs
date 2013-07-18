@@ -30,6 +30,11 @@ function View ( handle ) {
 View.defineStatic( {
 	Data: function ( databinding ) {
 		var id = ++View.Data._lastId;
+		//todo: this stuff will never be gc-ed
+		//      but when to delete it?
+		//      how to know it wont be used anymore?
+		//      we need to associate the binding with a template
+		//      and free it from the template
 		View.Data._bindings[ id ] = databinding;
 		return id;
 	}
@@ -83,9 +88,8 @@ View.define( {
 	@unstable
 	*/
 	setData: function ( bindingid ) {
+		this._dataId = bindingid;
 		this._data = View.Data._bindings[ bindingid ];
-		// so the data can be gc-ed eventually
-		delete View.Data._bindings[ bindingid ];
 		return this;
 	},
 

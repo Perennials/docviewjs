@@ -1,6 +1,8 @@
 0.6
 
 	Add the states from HtmlArea > .label to .Label and remove them from HtmlArea
+	Add flexible layouts (not by default)
+	Make View's bound data GC-able. See todos in View.js
 
 future:
 
@@ -18,7 +20,7 @@ future:
 
 	Remove IE9 support since IE11 is on the way
 		Add View.Attached, View.Dettached, View.Moved events
-		Move layouts to use flex boxes
+		Move layouts to use flex boxes by default
 
 	Would be nice if EventHandler's callback receives reference to the EventHandler somehow.
 	
