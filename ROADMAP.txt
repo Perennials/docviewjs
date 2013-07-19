@@ -16,7 +16,7 @@ without solution so far:
 
 	Would be nice if EventHandler's callback receives reference to the EventHandler somehow.
 
-future:
+style:
 
 	Style: Improve error handling, things expected to work should throw rather than returing bool or null (like View.addView()) (search for 
 	return null or return false)
@@ -26,12 +26,8 @@ future:
 	Revise OOP. Get rid of extends and use only mixins and interfaces. mixins should keep track of what is mixed in the object and .instanceof()
 	should check it if the real instanceof fails.
 
-	Once we have all components and place and there is enough time get rid of all dirty boootstrap CSS.
+future:
 
-	Remove IE9 support since IE11 is on the way
-		Add View.Attached, View.Dettached, View.Moved events
-
-	
 	View.addView( view, 'after'|'before', otherView )
 	View.addView( view, 'after#otherviewid'|'before#otherviewid' )
 	
@@ -40,9 +36,3 @@ future:
 	Checkbox, radio, Input(+multiline,+password), Overlay, Popup, Dialog (+in separate window), Tooltip, Dropdown list,
 	Virtual scroller, Date picker, Grid, Slider, Spinner (input with arrows up and down to change numbers), Menu,
 	Autocomplete, Progress bar, Tree
-
-	We could have some kind of model where templates are defined for each view state and when the state is changed
-	the view's DOM is changed but preserving the same data, (hint: see Windows8 JS videos). This would allow for more
-	freedom of designers and much better theming. There could be an option to crate simple rules in the template,
-	like chainging the CSS class, changing the attributes, changing the text based on selector, to avoid re-layout
-	for changes that rarely needs it like :disabled, :activated, :focus, .etc. For this to be implemented we need some sort of data binding.
