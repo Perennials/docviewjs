@@ -344,6 +344,7 @@
 	}
 
 	exports.$T = $T;
+	exports.$bind = View.Data;
 	exports.ViewTemplate = ViewTemplate;
 
 })(this);

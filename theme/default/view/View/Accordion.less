@@ -37,13 +37,13 @@
 		& > .AccordionItem:not(.disabled) {
 
 			&.active {
-				& > .View.AccordionItemTitle {
+				& > .AccordionItemTitle {
 					color: @text-color-active;
 				}
 			}
 
 			&:not(.active) {
-				& > .View.AccordionItemTitle {
+				& > .AccordionItemTitle {
 					color: @link-color;
 					cursor: pointer;
 				}
@@ -52,14 +52,14 @@
 					background-color: @bg-color-hl;
 				}
 
-				&:hover > .View.AccordionItemTitle {
+				&:hover > .AccordionItemTitle {
 					color: @link-color-hl;
 				}
 			}
 		}
 
-		& > .AccordionItem > .View:not(.AccordionItemTitle) {
-			border-top: 1px solid @border-color;
+		& > .AccordionItem.active > .AccordionItemTitle {
+			border-bottom: 1px solid @border-color;
 			//overflow-y: hidden;
 			//.transition( height, 0.6s );
 		}
@@ -73,9 +73,9 @@
 			.height0;
 		}
 
-		& > .AccordionItem.active > .View:not(.AccordionItemTitle) {
-			.height1;
-		}
+		//& > .AccordionItem.active > .View:not(.AccordionItemTitle) {
+		//	.height1;
+		//}
 
 		& > .AccordionItem > .View {
 			width: 100%;

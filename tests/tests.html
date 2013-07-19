@@ -109,7 +109,7 @@
 
 	<script type="template/xml" id="tPanel">
 		<View>
-			<View layout="Horizontal">
+			<View layout="Horizontal" class="medium-margin-bottom">
 				<Panel>
 					<PanelTitle><Label text="Panel" /></PanelTitle>
 					<Txt text="content ...content..." />
@@ -839,11 +839,11 @@ function nextSibling ( el ) {
 		<View layout="HorizontalFlex" class="someHeight2 pack-center">
 			<View class="greenbg smallWidth someHeight align-top" />
 			<View layout="VerticalFlex" class="vfill someWidth2 someHeight2 pack-justify">
-				<View class="redbg smallWidth smallHeight align-left" />
-				<View class="yellowbg smallWidth smallHeight align-center" />
-				<View class="graybg smallWidth smallHeight align-right" />
+				<View class="redbg smallWidth smallHeight halign-left" />
+				<View class="yellowbg smallWidth smallHeight halign-center" />
+				<View class="graybg smallWidth smallHeight halign-right" />
 			</View>
-			<View class="bluebg smallWidth someHeight align-bottom" />
+			<View class="bluebg smallWidth someHeight valign-bottom" />
 		</View>
 	</Template></script>
 
@@ -857,13 +857,13 @@ function nextSibling ( el ) {
 
 	<script type="template/xml" id="tLayoutFlexPackingFill"><Template>
 		<View layout="HorizontalFlex" class="someHeight2 maxSomeWidth2">
-			<View class="greenbg smallWidth someHeight align-top" />
+			<View class="greenbg smallWidth someHeight valign-top" />
 			<View layout="VerticalFlex" class="vfill fill someHeight2 pack-center">
-				<View class="redbg smallWidth smallHeight align-left" />
+				<View class="redbg smallWidth smallHeight halign-left" />
 				<View class="yellowbg smallHeight fill hfill" />
-				<View class="graybg smallWidth smallHeight align-right" />
+				<View class="graybg smallWidth smallHeight halign-right" />
 			</View>
-			<View class="bluebg smallWidth someHeight align-bottom" />
+			<View class="bluebg smallWidth someHeight valign-bottom" />
 		</View>
 	</Template></script>
 

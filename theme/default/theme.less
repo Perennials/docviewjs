@@ -41,6 +41,12 @@
 // we have some limitations with the horizontal layouts
 .float-right { float: right; }
 .float-left { float: left; }
+.no-overflow-x { overflow-x: hidden; }
+.no-overflow-y { overflow-y: hidden; }
+.no-overflow {
+	.no-overflow-x;
+	.no-overflow-y;
+}
 
 .no-padding { padding: 0; }
 .no-padding-top { padding-top: 0; }

@@ -30,11 +30,6 @@ function View ( handle ) {
 View.defineStatic( {
 	Data: function ( databinding ) {
 		var id = ++View.Data._lastId;
-		//todo: this stuff will never be gc-ed
-		//      but when to delete it?
-		//      how to know it wont be used anymore?
-		//      we need to associate the binding with a template
-		//      and free it from the template
 		View.Data._bindings[ id ] = databinding;
 		return id;
 	}
@@ -42,17 +37,23 @@ View.defineStatic( {
 
 View.Data.defineStatic( {
 	_lastId: 0,
-	_bindings: {}
+	_bindings: {},
+
+	release: function ( id ) {
+		delete View.Data._bindings[ id ];
+	}
 } );
 
-var $bind = View.Data;
-
+/**
+Retrieves the View associated with the element.
+@def View|undefined function HTMLElement ()
+*/
 Object.defineProperty( HTMLElement.prototype, 'getView', {
 	value: function () {
 		return this._view;
 	},
 	writable: true
-} )
+} );
 
 View.define( {
 
@@ -128,17 +129,27 @@ View.define( {
 	 * @unstable
 	 */
 	addBehavior: function ( behavior ) {
-		if ( !(behavior instanceof Behavior) ) {
-			behavior = Behavior.findByName( behavior );
-			if ( behavior !== null ) {
-				behavior = new behavior( this );
+		if ( String.isString( behavior ) ) {
+			if ( behavior.indexOf( ' ' ) > 0 ) {
+				behavior = behavior.split( ' ' );
 			}
+			else {
+				behavior = [ behavior ];
+			}
+			for ( var i = 0, iend = behavior.length; i < iend; ++i ) {
+				var b = Behavior.findByName( behavior[i] );
+				if ( b === null ) {
+					throw new Error( 'Unknown behavior ' + behavior[i] );
+				}
+				this.addBehavior( new b( this ) );
+			}
+			return this;
 		}
-		if ( behavior instanceof Behavior ) {
+		//if ( behavior instanceof Behavior ) {
 			( this._behaviors || ( this._behaviors = [] ) ).push( behavior );
-			return true;
-		}
-		return false;
+			return this;
+		//}
+		//throw new Error( 'Invalid behavior' );
 	},
 
 	/**
