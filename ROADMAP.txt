@@ -1,7 +1,6 @@
 0.6
 
 	Add the states from HtmlArea > .label to .Label and remove them from HtmlArea
-	Add flexible layouts (not by default)
 	Make View's bound data GC-able. See todos in View.js
 
 future:

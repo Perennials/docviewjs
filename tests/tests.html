@@ -50,18 +50,27 @@
 	.green { color: green; }
 	body { overflow-y: auto; }
 	.greenBox { background-color: green; }
+	.greenbg { background-color: green; }
 	.greenBox:not(.hfill) { width: 50px; }
 	.greenBox:not(.vfill) { height: 50px; }
 	.greenBox.hfill { min-width: 50px; }
 	.greenBox.vfill { min-height: 50px; }
 	.blueBox { background-color: blue; }
+	.bluebg { background-color: blue; }
 	.blueBox:not(.hfill) { width: 100px; }
 	.blueBox:not(.vfill) { height: 100px; }
 	.blueBox.hfill { min-width: 100px; }
 	.blueBox.vfill { min-height: 100px; }
+	.smallHeight { height: 50px; }
 	.someHeight { height: 100px; }
 	.someHeight2 { height: 200px; }
+	.smallWidth { width: 50px; }
 	.someWidth { width: 100px; }
+	.someWidth2 { width: 200px; }
+	.maxSomeWidth2 { max-width: 200px; }
+	.redbg { background-color: red; }
+	.yellowbg { background-color: yellow; }
+	.graybg { background-color: gray; }
 	
 	</style>
 
@@ -92,11 +101,10 @@
 		<b>left side</b> shows live controls, <b>right side</b> shows reference images and/or behaviour description,
 		<b>browser console</b> displays errors if some unitest fails
 	</p>
-	<p><b>IE9 exceptions</b> spinner annimation doesn't work, text selection works everywhere.</p>
+	<p><b>IE9 exceptions</b> spinner annimation doesn't work, text selection works everywhere, flexible layouts are not supported.</p>
 </div>
 
 <table id="tests" class="align-center">
-
 
 
 	<script type="template/xml" id="tPanel">
@@ -806,6 +814,65 @@ function nextSibling ( el ) {
 		<td template="tLayoutHorizontalVfill"></td>
 		<td></td>
 	</tr>
+
+
+
+	<script type="template/xml" id="tLayoutFlexStretch"><Template>
+		<View layout="HorizontalFlex" class="someHeight2 maxSomeWidth2">
+			<View class="greenbg smallWidth" />
+			<View layout="VerticalFlex" class="fill">
+				<View class="redbg fill2" />
+				<View class="yellowbg fill1" />
+			</View>
+			<View class="bluebg smallWidth" />
+		</View>
+	</Template></script>
+
+	<tr><td colspan="2">Layout.flex - all streched</td></tr>
+	<tr>
+		<td template="tLayoutFlexStretch"></td>
+		<td></td>
+	</tr>
+
+
+	<script type="template/xml" id="tLayoutFlexPacking"><Template>
+		<View layout="HorizontalFlex" class="someHeight2 pack-center">
+			<View class="greenbg smallWidth someHeight align-top" />
+			<View layout="VerticalFlex" class="vfill someWidth2 someHeight2 pack-justify">
+				<View class="redbg smallWidth smallHeight align-left" />
+				<View class="yellowbg smallWidth smallHeight align-center" />
+				<View class="graybg smallWidth smallHeight align-right" />
+			</View>
+			<View class="bluebg smallWidth someHeight align-bottom" />
+		</View>
+	</Template></script>
+
+	<tr><td colspan="2">Layout.flex - center / justify</td></tr>
+	<tr>
+		<td template="tLayoutFlexPacking"></td>
+		<td></td>
+	</tr>
+
+
+
+	<script type="template/xml" id="tLayoutFlexPackingFill"><Template>
+		<View layout="HorizontalFlex" class="someHeight2 maxSomeWidth2">
+			<View class="greenbg smallWidth someHeight align-top" />
+			<View layout="VerticalFlex" class="vfill fill someHeight2 pack-center">
+				<View class="redbg smallWidth smallHeight align-left" />
+				<View class="yellowbg smallHeight fill hfill" />
+				<View class="graybg smallWidth smallHeight align-right" />
+			</View>
+			<View class="bluebg smallWidth someHeight align-bottom" />
+		</View>
+	</Template></script>
+
+	<tr><td colspan="2">Layout.flex - center fill / center fill.hfill</td></tr>
+	<tr>
+		<td template="tLayoutFlexPackingFill"></td>
+		<td></td>
+	</tr>
+
 
 </table>
 

@@ -1,25 +1,42 @@
-.Layout-Horizontal {
-	white-space: nowrap;
-	text-align: initial;
-	/*display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-align-items: flex-start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;*/
+.Horizontal:not(.flex) {
+	& {
+		white-space: nowrap;
+		text-align: initial;
+	}
+	
+	& > .View {
+		display: inline-block;
+		vertical-align: top;
+	}
 }
 
-.Layout-Horizontal > .View {
-	/*height: 100%;*/
-	display: inline-block;
-	vertical-align: top;
-}
+.Horizontal.flex {
 
-/*.Layout-Horizontal > .Layout.flex:not(.Layout-exception) {
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-}*/
+	& {
+		-webkit-flex-direction: row;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+	}
+
+
+	&.pack-left {
+		.flex-align-items( start );
+	}
+
+	&.pack-right {
+		.flex-align-items( start );
+	}
+
+	& > .align-top {
+		.flex-align-self( start );
+	}
+
+	& > .align-bottom {
+		.flex-align-self( end );
+	}
+
+	& > .vfill {
+		.flex-align-self( stretch );
+	}
+
+}

@@ -1,9 +1,28 @@
-/*.Layout-Vertical.flex {
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	flex-direction: column;
-}*/
+.Vertical.flex {
 
-.Layout-Vertical > .View {
-	/*width: 100%;*/
+	& {
+		-webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+	}
+
+	&.pack-top {
+		.flex-align-items( start );
+	}
+
+	&.pack-bottom {
+		.flex-align-items( end );
+	}
+
+	& > .align-left {
+		.flex-align-self( start );
+	}
+
+	& > .align-right {
+		.flex-align-self( end );
+	}
+
+	& > .hfill {
+		.flex-align-self( stretch );
+	}
 }
