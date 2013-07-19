@@ -2,9 +2,21 @@
 
 	Add the states from HtmlArea > .label to .Label and remove them from HtmlArea
 
-future:
+without solution so far:
+
+	There should be a way to declare new view type, for example SourceView, which will inherit another type, for example Panel,
+	and all the subviews should be able to come from templat. The problem is 1) SourceView.extend( Panel ) is hardcoded 2)
+	if this SourceView should have for example layout or other attribute it can not be specified in template but must be hardcoded
+	beucase the template will look like <Template><Child1/><Child2/></Template>. For 2) it is possible to introduce some method
+	which will pass attributes of <Template> to the constructor but this is not perfect. For 1) I have no solution.
 	
 	Make View's bound data GC-able. But how to know it won't be used anymore?
+
+	In the testsuite the tootip for the "Label" in not shown in IE. This is because of the order in which XML attributes are iterated which is different in IE. Since the argument order can not be relied upon other solution is needed.
+
+	Would be nice if EventHandler's callback receives reference to the EventHandler somehow.
+
+future:
 
 	Style: Improve error handling, things expected to work should throw rather than returing bool or null (like View.addView()) (search for 
 	return null or return false)
@@ -16,13 +28,9 @@ future:
 
 	Once we have all components and place and there is enough time get rid of all dirty boootstrap CSS.
 
-	In the testsuite the tootip for the "Label" in not shown in IE. This is because of the order in which XML attributes are iterated which is different in IE. Since the argument order can not be relied upon other solution is needed.
-
 	Remove IE9 support since IE11 is on the way
 		Add View.Attached, View.Dettached, View.Moved events
-		Move layouts to use flex boxes by default
 
-	Would be nice if EventHandler's callback receives reference to the EventHandler somehow.
 	
 	View.addView( view, 'after'|'before', otherView )
 	View.addView( view, 'after#otherviewid'|'before#otherviewid' )
