@@ -557,6 +557,8 @@
 		var aborted = [];
 		var finished = [];
 
+		//enable this only if we are changing something in this file, otherwise we don't want the browser warning everytime
+		/*
 		new HttpRequest( 'http://asdasdasdasdasdasdasdasd.com', function ( res ) {
 			test( started[0] );
 			test( res.Success === false );
@@ -569,6 +571,7 @@
 		.addEventListener( 'Request.Cancelled', function () { aborted[0] = true; } )
 		.addEventListener( 'Request.Finished', function () { finished[0] = true; test( started[0] && !success[0] && !aborted[0] && failed[0] ); } )
 		.send();
+		*/
 
 		new HttpRequest( location.href, function ( res ) {
 			test( started[1] );
@@ -616,7 +619,7 @@
 		.send();*/
 
 		setTimeout( function () {
-			test( finished[0] );
+			//test( finished[0] );
 			test( finished[1] );
 			test( finished[2] );
 			test( finished[3] );
