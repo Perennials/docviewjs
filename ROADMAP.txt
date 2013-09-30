@@ -10,10 +10,13 @@ without solution so far:
 	beucase the template will look like <Template><Child1/><Child2/></Template>. For 2) it is possible to introduce some method
 	which will pass attributes of <Template> to the constructor but this is not perfect. For 1) I have no solution.
 	UPDATE2013-09-13: we are looking at two separate problems 1) Class definition and 2) View's constructor template. We could
-	maybe introduce special XML syntax for 1) so it will be defined in XML, not hardcoded.
+	maybe introduce special XML syntax for 1) so it will be defined in XML, not hardcoded. - this starts to look exactly
+	like the HTML5 <template> tag which means the XML stuff of this lib will become obsolete once <template> becomes
+	usable, but then the controls and the rest of the classes can be ported to HTML5 and live on.
 	
 	Make View's bound data GC-able. But how to know it won't be used anymore?
-	UPDATE2013-09-13: can we move the bound data in the View when it is constructed and store it only there?
+	UPDATE2013-09-13: can we move the bound data in the View when it is constructed and store it only there? And
+	before that we should store it in rendered string of the TextTemplate, not globally.
 
 	In the testsuite the tootip for the "Label" in not shown in IE. This is because of the order in which XML attributes are iterated which is different in IE. Since the argument order can not be relied upon other solution is needed.
 
