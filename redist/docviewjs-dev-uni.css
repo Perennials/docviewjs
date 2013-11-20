@@ -49,28 +49,256 @@ body {
 .ViewSwitch > :not(.active) {
   display: none;
 }
-.Layout-Horizontal {
+.Layout.flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.Layout.flex > .View:not(.exception) {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shirnk: 0;
+}
+.Layout.flex.inline {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.Layout.flex.wrap {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.Layout.flex.pack-start {
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  -ms-flex-pack: start;
+}
+.Layout.flex.pack-end {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-justify-content: end;
+  justify-content: end;
+  -ms-flex-pack: end;
+}
+.Layout.flex.pack-center {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+.Layout.flex.pack-justify {
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+.Layout.flex > .flex-start {
+  -ms-flex-item-align: start;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+.Layout.flex > .flex-end {
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -ms-flex-item-align: end;
+  -webkit-align-self: end;
+  align-self: end;
+}
+.Layout.flex > .flex-center {
+  -ms-flex-item-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+}
+.Layout.flex > .flex-stretch {
+  -ms-flex-item-align: stretch;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+.Layout.flex > .fill,
+.Layout.flex > .fill1 {
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill2 {
+  -webkit-flex-grow: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill3 {
+  -webkit-flex-grow: 3;
+  -ms-flex-positive: 3;
+  flex-grow: 3;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill4 {
+  -webkit-flex-grow: 4;
+  -ms-flex-positive: 4;
+  flex-grow: 4;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill5 {
+  -webkit-flex-grow: 5;
+  -ms-flex-positive: 5;
+  flex-grow: 5;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill6 {
+  -webkit-flex-grow: 6;
+  -ms-flex-positive: 6;
+  flex-grow: 6;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill7 {
+  -webkit-flex-grow: 7;
+  -ms-flex-positive: 7;
+  flex-grow: 7;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill8 {
+  -webkit-flex-grow: 8;
+  -ms-flex-positive: 8;
+  flex-grow: 8;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill9 {
+  -webkit-flex-grow: 9;
+  -ms-flex-positive: 9;
+  flex-grow: 9;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill10 {
+  -webkit-flex-grow: 10;
+  -ms-flex-positive: 10;
+  flex-grow: 10;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill11 {
+  -webkit-flex-grow: 11;
+  -ms-flex-positive: 11;
+  flex-grow: 11;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Layout.flex > .fill12 {
+  -webkit-flex-grow: 12;
+  -ms-flex-positive: 12;
+  flex-grow: 12;
+  -ms-flex-preferred-size: 0;
+  -webkit-flex-basis: 0;
+  flex-basis: 0;
+}
+.Horizontal:not(.flex) {
   white-space: nowrap;
   text-align: initial;
-  /*display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-align-items: flex-start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;*/
-
 }
-.Layout-Horizontal > .View {
-  /*height: 100%;*/
-
+.Horizontal:not(.flex) > .View {
   display: inline-block;
   vertical-align: top;
 }
-/*.Layout-Horizontal > .Layout.flex:not(.Layout-exception) {
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-}*/
+.Horizontal.flex {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.Horizontal.flex.pack-left {
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  -ms-flex-pack: start;
+}
+.Horizontal.flex.pack-right {
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  -ms-flex-pack: start;
+}
+.Horizontal.flex > .valign-top {
+  -ms-flex-item-align: start;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+.Horizontal.flex > .valign-bottom {
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -ms-flex-item-align: end;
+  -webkit-align-self: end;
+  align-self: end;
+}
+.Horizontal.flex > .valign-center {
+  -ms-flex-item-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+}
+.Horizontal.flex > .vfill {
+  -ms-flex-item-align: stretch;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
+.Vertical.flex {
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.Vertical.flex.pack-top {
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-justify-content: start;
+  justify-content: start;
+  -ms-flex-pack: start;
+}
+.Vertical.flex.pack-bottom {
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-justify-content: end;
+  justify-content: end;
+  -ms-flex-pack: end;
+}
+.Vertical.flex > .halign-left {
+  -ms-flex-item-align: start;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+.Vertical.flex > .halign-right {
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -ms-flex-item-align: end;
+  -webkit-align-self: end;
+  align-self: end;
+}
+.Vertical.flex > .halign-center {
+  -ms-flex-item-align: center;
+  -webkit-align-self: center;
+  align-self: center;
+}
+.Vertical.flex > .hfill {
+  -ms-flex-item-align: stretch;
+  -webkit-align-self: stretch;
+  align-self: stretch;
+}
