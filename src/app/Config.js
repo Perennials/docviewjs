@@ -5,7 +5,7 @@
 	/**
 	 Provides some resources to the application.
 	 Each resource is identified by its id. Configs can be stacked
-	 effectively providing resourse sets that can be used for 
+	 effectively providing resource sets that can be used for 
 	 internationalization, theming and others.
 	 ```
 	 //default language
@@ -27,7 +27,7 @@
 	 /**
 	 Creates a new config instance.
 	 @def constructor Config ( defaultset:Object = "null", parent:Config = "undefined" )
-	 @param Object with collecition of properties for the config.
+	 @param Object with collection of properties for the config.
 	 @param Parent config to inherit some properties from.
 	 */
 	function Config ( configset, parent ) {
