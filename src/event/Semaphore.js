@@ -49,6 +49,7 @@ Semaphore.define( {
 
 	/**
 	Notifies the lock once.
+
 	@def function Semaphore.notify ()
 	*/
 	notify: function () {
@@ -65,6 +66,7 @@ Semaphore.define( {
 
 	/**
 	Increases the lock count.
+	
 	@def function Semaphore.lock ()
 	*/
 	lock: function () {
