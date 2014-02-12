@@ -57,7 +57,7 @@ body {
 .Layout.flex > .View:not(.exception) {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
-  flex-shirnk: 0;
+  flex-shrink: 0;
 }
 .Layout.flex.inline {
   display: -webkit-inline-flex;
@@ -2407,6 +2407,7 @@ to {
   transition: opacity 0.2s;
   -webkit-box-shadow: none;
   box-shadow: none;
+  outline: none;
 }
 .disabled,
 .disabled * {

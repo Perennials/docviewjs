@@ -22,6 +22,8 @@ without solution so far:
 
 	Would be nice if EventHandler's callback receives reference to the EventHandler somehow.
 
+	Button should not receive click events in disabled state.
+
 style:
 
 	Style: Improve error handling, things expected to work should throw rather than returing bool or null (like View.addView()) (search for 

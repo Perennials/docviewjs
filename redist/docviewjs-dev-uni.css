@@ -57,7 +57,7 @@ body {
 .Layout.flex > .View:not(.exception) {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
-  flex-shirnk: 0;
+  flex-shrink: 0;
 }
 .Layout.flex.inline {
   display: -webkit-inline-flex;
