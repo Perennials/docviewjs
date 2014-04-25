@@ -1,13 +1,14 @@
 "use strict";
 
 //global.UNITESTS = true;
+global.UNITESTS_AUTORUN = true;
 require( 'Unitest' );
 require( 'Prototype' );
 var Fs = require( 'fs' );
 var Path = require( 'path' );
 var Os = require( 'os' );
 var ChildProcess = require( 'child_process' );
-var PathUtils = require( 'PathUtils' );
+var PathUtils = require( 'Utils/Path' );
 
 //todo: these can be turned into generic #ifdefs, no need to be predefined, a single regex will do
 // JavaScript building rules
@@ -504,7 +505,7 @@ Build.define( {
 
 
 
-Unitest( 'Build.*', function () {
+Unitest( 'Build.*', function ( test ) {
 
 
 	//test( RE_TEMPLATE1.exec( '<script type="template/docviewjs" id="id.tmpl1">asd\nqwe</script>' )[3] == 'id.tmpl1' );
@@ -515,13 +516,13 @@ Unitest( 'Build.*', function () {
 
 	var build = new Build( { DEBUG: true } );
 	var reqs = build._extractJsRequires( '/*@*/require( "qwe" )/*@*/require( "asd" );/*@RELEASE*//*@*/require("releasefile")/*RELEASE@*/' );
-	testeqdeep( reqs.requires, [ 'qwe', 'asd' ] );
+	test.eq( reqs.requires, [ 'qwe', 'asd' ] );
 
 
 
 	var build = new Build( { RELEASE: true } );
 	var reqs = build._extractJsRequires( '/*@*/require( "qwe" )/*@*/require( "asd" );/*@RELEASE*//*@*/require("releasefile")/*RELEASE@*/' );
-	testeqdeep( reqs.requires, [ 'qwe', 'asd', 'releasefile' ] );
+	test.eq( reqs.requires, [ 'qwe', 'asd', 'releasefile' ] );
 
 
 
@@ -531,28 +532,28 @@ Unitest( 'Build.*', function () {
 	test( build._resolveRequirePath( './' + Path.basename( __filename ), __filename ) == __filename );
 	test( build._resolveRequirePath( '../build.js', __filename ) == Path.dirname( __dirname ) + Path.sep + 'build.js' );
 
-	test( build._resolveRequirePath( 'PathUtils', __filename ) == node_modules + Path.sep + 'PathUtils' + Path.sep + 'PathUtils.js' );
-	test( build._resolveRequirePath( 'PathUtils/tests', __filename ) == node_modules + Path.sep + 'PathUtils' + Path.sep + 'tests.js' );
-	test( build._resolveRequirePath( 'PathUtils/tests.js', __filename ) == node_modules + Path.sep + 'PathUtils' + Path.sep + 'tests.js' );
+	test( build._resolveRequirePath( 'Utils/Path', __filename ) == node_modules + Path.sep + 'Utils' + Path.sep + 'Path.js' );
+	test( build._resolveRequirePath( 'Utils/tests', __filename ) == node_modules + Path.sep + 'Utils' + Path.sep + 'tests.js' );
+	test( build._resolveRequirePath( 'Utils/tests.js', __filename ) == node_modules + Path.sep + 'Utils' + Path.sep + 'tests.js' );
 
 
 
 	var build = new Build( { ImportPaths: [ node_modules ] } );
 	var imports = build._resolveJsImports( node_modules + '/Prototype/Prototype.js' );
-	testeq( imports.length , 5 );
-	testeq( imports[0].file , Path.resolve( node_modules + '/Prototype/Object.js' ) );
-	testeq( imports[3].file , Path.resolve( node_modules + '/Prototype/Function.js' ) );
-	testeq( imports[4].file , Path.resolve( node_modules + '/Prototype/Prototype.js' ) );
+	test.eq( imports.length , 7 );
+	test.eq( imports[0].file , Path.resolve( node_modules + '/Prototype/Object.js' ) );
+	test.eq( imports[3].file , Path.resolve( node_modules + '/Prototype/Function.js' ) );
+	test.eq( imports[6].file , Path.resolve( node_modules + '/Prototype/Prototype.js' ) );
 
 
 
 	var build = new Build( { ImportPaths: [ node_modules ], UNITESTS: true } );
 	var imports = build._resolveJsImports( node_modules + '/Prototype/Prototype.js' );
-	testeq( imports.length , 6 );
-	testeq( imports[0].file , Path.resolve( node_modules + '/Unitest/Unitest.js' ) );
-	testeq( imports[1].file , Path.resolve( node_modules + '/Prototype/Object.js' ) );
-	testeq( imports[4].file , Path.resolve( node_modules + '/Prototype/Function.js' ) );
-	testeq( imports[5].file , Path.resolve( node_modules + '/Prototype/Prototype.js' ) );
+	test.eq( imports.length , 8 );
+	test.eq( imports[0].file , Path.resolve( node_modules + '/Unitest/Unitest.js' ) );
+	test.eq( imports[1].file , Path.resolve( node_modules + '/Prototype/Object.js' ) );
+	test.eq( imports[4].file , Path.resolve( node_modules + '/Prototype/Function.js' ) );
+	test.eq( imports[7].file , Path.resolve( node_modules + '/Prototype/Prototype.js' ) );
 } );
 
 module.exports = Build;

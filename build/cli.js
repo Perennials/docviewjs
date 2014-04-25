@@ -1,4 +1,4 @@
-var ArgvUtils = require( 'ArgvUtils' );
+var ArgvUtils = require( 'Utils/Argv' );
 var Build = require( './Build.js' );
 
 var argv = ArgvUtils.parseArgs();

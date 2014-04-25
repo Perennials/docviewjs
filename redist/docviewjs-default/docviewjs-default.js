@@ -15,7 +15,9 @@ for(var b in c){Object.defineProperty(d,b,{value:c[b]})}Object.defineProperty(HT
 }return this},writable:true});Object.defineProperty(Object.prototype,"duplicate",{value:function(){var a=Object.create(Object.getPrototypeOf(this));
 for(var b in this){var c=this[b];if(c instanceof Object&&c.duplicate instanceof Function){a[b]=c.duplicate()
 }else{a[b]=c}}return a},writable:true});Object.defineProperty(Object,"isObject",{value:function(a){return a instanceof Object&&Object.getPrototypeOf(a)===Object.prototype
-},writable:true});Object.defineProperty(Object.prototype,"filter",{value:function(f,a){var e=Object.keys(this);
+},writable:true});Object.defineProperty(Object,"values",{value:function(e){var d=Object.keys(e);
+var a=new Array(d.length);for(var b=0,c=d.length;b<c;++b){a[b]=e[d[b]]}return a},writable:true});
+Object.defineProperty(Object.prototype,"filter",{value:function(f,a){var e=Object.keys(this);
 for(var c=0,d=e.length;c<d;++c){var b=e[c];if(f.call(a,this[b],b,this)!==true){delete this[b]
 }}return this},writable:true});"use strict";Object.defineProperty(Array.prototype,"duplicate",{value:function(){var a=[].concat(this);
 for(var b=a.length-1;b>=0;--b){var c=a[b];if(c instanceof Object&&c.duplicate instanceof Function){a[b]=c.duplicate()
@@ -23,15 +25,21 @@ for(var b=a.length-1;b>=0;--b){var c=a[b];if(c instanceof Object&&c.duplicate in
 Object.defineProperty(Array.prototype,"last",{get:function(){var a=this.length-1;
 return a>=0?this[a]:undefined},set:function(a){var b=this.length-1;return b>=0?this[b]=a:this[0]=a
 }});"use strict";Object.defineProperty(String,"isString",{value:function(a){return typeof a=="string"||a instanceof String
-},writable:true});Object.defineProperty(String.prototype,"splitFirst",{value:function(b){if(String.isString(b)){var a=this.indexOf(b);
-if(a>=0){return{left:this.substr(0,a),right:this.substr(a+b.length)}}}else{var c=b.exec(this);
-if(c!==null){return{left:this.substr(0,c.index),right:this.substr(c.index+c[0].length)}
-}}return{left:this}},writable:true});Object.defineProperty(String.prototype,"splitLast",{value:function(c){if(String.isString(c)){var b=this.lastIndexOf(c);
-if(b>=0){return{left:this.substr(0,b),right:this.substr(b+c.length)}}}else{var d,a;
-if(!c.global){c=new RegExp(c.source,(c.ignoreCase?"i":"")+(c.multiline?"m":"")+"g")
-}while(a=c.exec(this)){d=a}if(d!==null){return{left:this.substr(0,d.index),right:this.substr(d.index+d[0].length)}
-}}return{left:this}},writable:true});if(String.prototype.startsWith===undefined){Object.defineProperty(String.prototype,"startsWith",{enumerable:false,configurable:false,writable:false,value:function(b,a){a=a||0;
-if(this.length<a+b.length){return false}return this.indexOf(b,a)===a}})}Object.defineProperty(String.prototype,"count",{value:function(c){var a=0;
+},writable:true});Object.defineProperty(String.prototype,"indexOfEx",{value:function(c,e,b){if(c instanceof RegExp){if(e>0){var d=c.lastIndex;
+var a=c.exec(this.substr(e));c.lastIndex=d;if(a!==null){if(b){b.length=a[0].length
+}return a.index+e}return -1}else{var d=c.lastIndex;c.lastIndex=0;var a=c.exec(this);
+c.lastIndex=d;if(a!==null){if(b){b.length=a[0].length}return a.index}return -1}}else{var a=this.indexOf(c,e);
+if(b&&a>=0){b.length=c.length}return a}},writable:true});Object.defineProperty(String.prototype,"lastIndexOfEx",{value:function(e,h,d){if(e instanceof RegExp){h=h||this.length;
+var f,a;if(!e.global){if(e._lastIndexOf){e=e._lastIndexOf}else{var b=(e.ignoreCase?"i":"")+(e.multiline?"m":"")+"g";
+e=(e._lastIndexOf=new RegExp(e.source,b))}}var g=e.lastIndex;e.lastIndex=0;while((a=e.exec(this))&&a.index<=h){f=a
+}e.lastIndex=g;if(f){if(d){d.length=f[0].length}return f.index}return -1}else{var c=this.lastIndexOf(e,h);
+if(d&&c>=0){d.length=e.length}return c}},writable:true});Object.defineProperty(String.prototype,"splitFirst",{value:function(c){var a={left:this,right:undefined,length:0};
+var b=this.indexOfEx(c,undefined,a);if(b>=0){a.left=this.substr(0,b);a.right=this.substr(b+a.length)
+}return a},writable:true});Object.defineProperty(String.prototype,"splitLast",{value:function(c){var a={left:this,right:undefined,length:0};
+var b=this.lastIndexOfEx(c,undefined,a);if(b>=0){a.left=this.substr(0,b);a.right=this.substr(b+a.length)
+}return a},writable:true});if(String.prototype.startsWith===undefined){Object.defineProperty(String.prototype,"startsWith",{enumerable:false,configurable:false,writable:false,value:function(b,a){a=a||0;
+if(this.length<a+b.length){return false}return this.indexOf(b,a)===a}})}if(String.prototype.endsWith===undefined){Object.defineProperty(String.prototype,"endsWith",{enumerable:false,configurable:false,writable:false,value:function(c,b){var a=c.length;
+b=b||this.length;if(a>b){return false}return this.slice(b-a,b)===c}})}Object.defineProperty(String.prototype,"count",{value:function(c){var a=0;
 for(var b=0;(b=this.indexOf(c,b))>=0;b+=c.length){++a}return a},writable:true});"use strict";
 Object.defineProperty(Function.prototype,"define",{value:function(a){var c=this.prototype;
 for(var b in a){Object.defineProperty(c,b,{value:a[b],writable:true})}return this

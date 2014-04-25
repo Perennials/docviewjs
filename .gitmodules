@@ -1,12 +1,9 @@
 [submodule "deps/node/node_modules/Prototype"]
 	path = deps/node/node_modules/Prototype
 	url = https://github.com/Perennials/prototype-js
-[submodule "deps/node/node_modules/ArgvUtils"]
-	path = deps/node/node_modules/ArgvUtils
-	url = https://github.com/Perennials/argvutils-node
-[submodule "deps/node/node_modules/PathUtils"]
-	path = deps/node/node_modules/PathUtils
-	url = https://github.com/Perennials/pathutils-node
 [submodule "deps/node/node_modules/Unitest"]
 	path = deps/node/node_modules/Unitest
 	url = https://github.com/Perennials/unitest-js
+[submodule "deps/node/node_modules/Utils"]
+	path = deps/node/node_modules/Utils
+	url = https://github.com/Perennials/utils-node
