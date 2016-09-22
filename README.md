@@ -77,3 +77,4 @@ myApp.appView.addView( accordion );
 Authors
 -------
 Borislav Peev (borislav.asdf at gmail dot com)
+Tino Jahnke (tj at perennial dot de)
